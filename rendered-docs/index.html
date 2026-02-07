@@ -1,0 +1,539 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="./"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>Google Apps Script API</title><meta name="description" content="Documentation for Google Apps Script API"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script><script async src="assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="index.html" class="title">Google Apps Script API</a><div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>Google Apps Script API</h1></div><div class="tsd-panel tsd-typography"><h1 id="definitely-typed" class="tsd-anchor-link">Definitely Typed<a href="#definitely-typed" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1>
+<blockquote>
+<p>The repository for <em>high quality</em> TypeScript type definitions.</p>
+</blockquote>
+<p><em>You can also read this README in <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.es.md">Español</a>, <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.ko.md">한국어</a>, <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.ru.md">Русский</a>, <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.zh-Hans.md">简体中文</a>, <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.pt.md">Português</a>, <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.it.md">Italiano</a>, <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.ja.md">日本語</a> and <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.fr.md">Français</a>!</em></p>
+<p><em>Link to <a href="./docs/admin.md">Admin manual</a></em></p>
+<h2 id="-important-this-repo-has-recently-changed-layout-" class="tsd-anchor-link">!!! Important! This repo has recently changed layout! !!!<a href="#-important-this-repo-has-recently-changed-layout-" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Definitely Typed has recently changed to a proper <code>pnpm</code> monorepo; you may want to reread this document for changes to the layout of packages in this repo.</p>
+<p>At the very least, you may want to <code>git clean -fdx</code> the repo (or <code>node ./scripts/clean-node-modules.js</code> on Windows) to clean up <code>node_modules</code> and run <code>pnpm install --filter .</code> to install the workspace root. See further sections for more info on <code>pnpm install</code>.</p>
+<h2 id="current-status" class="tsd-anchor-link">Current status<a href="#current-status" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This section tracks the health of the repository and publishing process.
+It may be helpful for contributors experiencing any issues with their PRs and packages.</p>
+<ul>
+<li>Most recent build <a href="https://github.com/microsoft/DefinitelyTyped-tools/tree/master/packages/dtslint">type-checked/linted</a> cleanly: <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/actions/workflows/CI.yml?query=branch%3Amaster+event%3Apush"><img src="https://github.com/DefinitelyTyped/DefinitelyTyped/actions/workflows/CI.yml/badge.svg?branch=master&amp;event=push" alt="Build status"></a></li>
+<li>All packages are type-checking/linting cleanly: <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/actions/workflows/CI.yml?query=branch%3Amaster+event%3Aschedule"><img src="https://github.com/DefinitelyTyped/DefinitelyTyped/actions/workflows/CI.yml/badge.svg?branch=master&amp;event=schedule" alt="Build status"></a></li>
+<li>All packages are being <a href="https://github.com/microsoft/DefinitelyTyped-tools/tree/master/packages/publisher">published to npm</a>: <a href="https://github.com/microsoft/DefinitelyTyped-tools/actions/workflows/publish-packages.yml"><img src="https://github.com/microsoft/DefinitelyTyped-tools/actions/workflows/publish-packages.yml/badge.svg?event=schedule" alt="Publish Status"></a></li>
+<li>Current <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/issues/44317">infrastructure status updates</a></li>
+</ul>
+<p>If anything here seems wrong or any of the above are failing, please let us know in <a href="https://discord.gg/typescript">the Definitely Typed channel on the TypeScript Community Discord server</a>.</p>
+<h2 id="what-are-declaration-files-and-how-do-i-get-them" class="tsd-anchor-link">What are declaration files and how do I get them?<a href="#what-are-declaration-files-and-how-do-i-get-them" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>See the <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html">TypeScript handbook</a>.</p>
+<h3 id="npm" class="tsd-anchor-link">npm<a href="#npm" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>This is the preferred method. For example:</p>
+<pre><code class="sh"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span><span class="hl-1"> </span><span class="hl-3">--save-dev</span><span class="hl-1"> </span><span class="hl-2">@types/node</span>
+</code><button type="button">Copy</button></pre>
+
+<p>To install typings for a scoped module, remove the <code>@</code> and add double-underscore after the scope. For example, to install typings for <code>@babel/preset-env</code>:</p>
+<pre><code class="sh"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span><span class="hl-1"> </span><span class="hl-3">--save-dev</span><span class="hl-1"> </span><span class="hl-2">@types/babel__preset-env</span>
+</code><button type="button">Copy</button></pre>
+
+<p>The types should then be automatically included by the compiler.
+You may need to add a <code>types</code> reference if you're not using modules:</p>
+<pre><code class="ts"><span class="hl-4">/// </span><span class="hl-5">&lt;</span><span class="hl-6">reference</span><span class="hl-4"> </span><span class="hl-7">types</span><span class="hl-1">=</span><span class="hl-2">&quot;node&quot;</span><span class="hl-4"> </span><span class="hl-5">/&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p>See more in the <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html">handbook</a>.</p>
+<p>For an npm package &quot;foo&quot;, typings for it will be at &quot;@types/foo&quot;.</p>
+<p>If your package has typings specified using the <code>types</code> or <code>typings</code> key in its <code>package.json</code>, the npm registry will display that the package has available bindings like so:</p>
+<p><img src="https://user-images.githubusercontent.com/30049719/228748963-56fabfd1-9101-42c2-9891-b586b775b01e.png" alt="image"></p>
+<p>If you still can't find the typings, just look for any &quot;.d.ts&quot; files in the package and manually include them with a <code>/// &lt;reference path=&quot;&quot; /&gt;</code>.</p>
+<h3 id="support-window" class="tsd-anchor-link">Support Window<a href="#support-window" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Definitely Typed only tests packages on versions of TypeScript that are less than 2 years old.</p>
+<img src="docs/support-window.svg#gh-light-mode-only" style="width:100%">
+<img src="docs/support-window.svg#gh-dark-mode-only" style="width:100%">
+<details>
+<summary>Older versions of TypeScript</summary>
+<p><code>@types</code> packages have tags for versions of TypeScript that they explicitly support, so you can usually get older versions of packages that predate the 2-year window.
+For example, if you run <code>npm dist-tags @types/react</code>, you'll see that TypeScript 2.5 can use types for react@16.0, whereas TypeScript 2.6 and 2.7 can use types for react@16.4:</p>
+<table>
+<thead>
+<tr>
+<th>Tag</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>latest</td>
+<td>16.9.23</td>
+</tr>
+<tr>
+<td>ts2.0</td>
+<td>15.0.1</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>ts2.5</td>
+<td>16.0.36</td>
+</tr>
+<tr>
+<td>ts2.6</td>
+<td>16.4.7</td>
+</tr>
+<tr>
+<td>ts2.7</td>
+<td>16.4.7</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<h4 id="typescript-1" class="tsd-anchor-link">TypeScript 1.*<a href="#typescript-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li>Manually download from the <code>master</code> branch of this repository and place them in your project</li>
+<li><s><a href="https://github.com/typings/typings">Typings</a></s> (use preferred alternatives, typings is deprecated)</li>
+<li><s><a href="https://nuget.org/packages?q=DefinitelyTyped">NuGet</a></s> (use preferred alternatives, nuget DT type publishing has been turned off)</li>
+</ul>
+<p>You may need to add manual <a href="https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html">references</a>.</p>
+</details>
+<h2 id="how-can-i-contribute" class="tsd-anchor-link">How can I contribute?<a href="#how-can-i-contribute" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Definitely Typed only works because of contributions by users like you!</p>
+<h3 id="testing" class="tsd-anchor-link">Testing<a href="#testing" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Before you share your improvement with the world, use the types yourself by creating a <code>typename.d.ts</code> file in your project and filling out its exports:</p>
+<pre><code class="ts"><span class="hl-3">declare</span><span class="hl-1"> </span><span class="hl-3">module</span><span class="hl-1"> </span><span class="hl-2">&quot;libname&quot;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-4">// Types inside here</span><br/><span class="hl-1">    </span><span class="hl-8">export</span><span class="hl-1"> </span><span class="hl-3">function</span><span class="hl-1"> </span><span class="hl-0">helloWorldMessage</span><span class="hl-1">(): </span><span class="hl-9">string</span><span class="hl-1">;</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<h4 id="test-editing-an-existing-package" class="tsd-anchor-link">Test editing an existing package<a href="#test-editing-an-existing-package" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>You can edit the types directly in <code>node_modules/@types/foo/index.d.ts</code> to validate your changes, then bring the changes to this repo with the steps below.</p>
+<p>Alternatively, you can use <a href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation">module augmentation</a> to extend existing types from the DT module or use the <code>declare module</code> technique above which will override the version in <code>node_modules</code>.</p>
+<h4 id="adding-tests-to-a-new-package" class="tsd-anchor-link">Adding tests to a new package<a href="#adding-tests-to-a-new-package" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Add to your <code>tsconfig.json</code>:</p>
+<pre><code class="json"><span class="hl-2">&quot;baseUrl&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;types&quot;</span><span class="hl-1">,</span><br/><span class="hl-2">&quot;typeRoots&quot;</span><span class="hl-1">: [</span><span class="hl-2">&quot;types&quot;</span><span class="hl-1">],</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Create <code>types/foo/index.d.ts</code> containing declarations for the module &quot;foo&quot;.
+You should now be able to import from <code>&quot;foo&quot;</code> in your code and it will route to the new type definition.
+Then build <em>and</em> run the code to make sure your type definition actually corresponds to what happens at runtime.</p>
+<p>Once you've tested your definitions with real code, make a <a href="#make-a-pull-request">PR</a>
+then follow the instructions to <a href="#edit-an-existing-package">edit an existing package</a> or
+<a href="#create-a-new-package">create a new package</a>.</p>
+<h3 id="make-a-pull-request" class="tsd-anchor-link">Make a pull request<a href="#make-a-pull-request" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Once you've tested your package, you can share it on Definitely Typed.</p>
+<ol>
+<li><a href="https://guides.github.com/activities/forking/">Fork</a> this repository.</li>
+<li>Clone it.
+<ul>
+<li>The Definitely Typed repo is large; you may want to consider using a <a href="https://github.blog/open-source/git/get-up-to-speed-with-partial-clone-and-shallow-clone/#user-content-blobless-clones">&quot;blobless clone&quot;</a> to save time and space by passing <code>--filter=blob:none</code> when running <code>git clone</code>.</li>
+</ul>
+</li>
+<li>Install <a href="https://nodejs.org/">node</a>.</li>
+<li>Run <code>pnpm install</code>.
+<ul>
+<li><code>pnpm install</code> will install the <em>entire</em>
+repository, including packages you may not be editing. If you'd like to install only a subset,
+you can run <code>pnpm install -w --filter &quot;{./types/foo}...&quot;</code> to install <code>@types/foo</code> and all of
+its dependencies. If you need to run tests for packages that <em>depend</em> on <code>@types/foo</code>, you can run <code>pnpm install -w --filter &quot;...{./types/foo}...&quot;</code> to pull in all related packages for testing.</li>
+</ul>
+</li>
+</ol>
+<div class="tsd-alert tsd-alert-note"><div class="tsd-alert-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><use href="assets/icons.svg#icon-alertNote"></use></svg><span>Note</span></div><p>
+If you are using Windows, you may find that <code>git clean</code> does not remove the <code>node_modules</code> directory or hangs when doing so. If you need to remove <code>node_modules</code>, you can run <code>pnpm clean-node-modules</code> to reset the repo.</p>
+</div>
+<p>We use a bot to let a large number of pull requests to DefinitelyTyped be handled entirely in a self-service manner. You can read more about <a href="https://devblogs.microsoft.com/typescript/changes-to-how-we-manage-definitelytyped/">why and how here</a>. Here is a handy reference showing the life cycle of a pull request to DT:</p>
+<img src="https://raw.githubusercontent.com/microsoft/DefinitelyTyped-tools/main/packages/mergebot/docs/dt-mergebot-lifecycle.svg">
+<h4 id="edit-an-existing-package" class="tsd-anchor-link">Edit an existing package<a href="#edit-an-existing-package" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li>Make changes. Remember to <a href="#my-package-teststs">edit tests</a>.
+If you make breaking changes, do not forget to <a href="#if-a-library-is-updated-to-a-new-major-version-with-breaking-changes-how-should-i-update-its-type-declaration-package">update a major version</a>.</li>
+<li><a href="#running-tests">Run <code>pnpm test &lt;package to test&gt;</code></a>.</li>
+</ul>
+<p>When you make a PR to edit an existing package, <code>dt-bot</code> should @-mention the package's owners.
+If it doesn't, you can do so yourself in the comment associated with the PR.</p>
+<h4 id="create-a-new-package" class="tsd-anchor-link">Create a new package<a href="#create-a-new-package" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>If you are the library author and your package is written in TypeScript, <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html">bundle the generated declaration files</a> in your package instead of publishing to Definitely Typed.
+You can also generate declaration files from JavaScript files, using JSDoc for type annotations.</p>
+<p>If you are adding typings for an npm package, create a directory with the same name.
+If the package you are adding typings for is not on npm, make sure the name you choose for it does not conflict with the name of a package on npm.
+(You can use <code>npm info &lt;my-package&gt;</code> to check for the existence of the <code>&lt;my-package&gt;</code> package.)</p>
+<p>Your package should have this structure:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>index.d.ts</code></td>
+<td>This contains the typings for the package.</td>
+</tr>
+<tr>
+<td><a href="#my-package-teststs"><code>&lt;my-package&gt;-tests.ts</code></a></td>
+<td>This contains sample code which tests the typings. This code does <em>not</em> run, but it is type-checked.</td>
+</tr>
+<tr>
+<td><a href="#tsconfigjson"><code>tsconfig.json</code></a></td>
+<td>This allows you to run <code>tsc</code> within the package.</td>
+</tr>
+<tr>
+<td><a href="#linter-eslintrcjson"><code>.eslintrc.json</code></a></td>
+<td>(Rarely) Needed only to disable lint rules written for eslint.</td>
+</tr>
+<tr>
+<td><a href="#packagejson"><code>package.json</code></a></td>
+<td>Contains metadata for the package, including its name, version and dependencies.</td>
+</tr>
+<tr>
+<td><a href="#npmignore"><code>.npmignore</code></a></td>
+<td>Specifies which files are intended to be included in the package.</td>
+</tr>
+</tbody>
+</table>
+<p>Generate these by running <code>npx dts-gen --dt --name &lt;my-package&gt; --template module</code>.
+See all options at <a href="https://github.com/microsoft/DefinitelyTyped-tools/tree/main/packages/dts-gen">dts-gen</a>.</p>
+<p>If you have <code>.d.ts</code> files besides <code>index.d.ts</code>, make sure that they are referenced either in <code>index.d.ts</code> or the tests.</p>
+<p>Definitely Typed members routinely monitor for new PRs, though keep in mind that the number of other PRs may slow things down.</p>
+<p>For a good example package, see <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/tree/a2ff1d2088143cbacc15786c7f3b0ec67179523c/types/base64-js">base64-js</a>.</p>
+<h4 id="removing-a-package" class="tsd-anchor-link">Removing a package<a href="#removing-a-package" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>When a package <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html">bundles</a> its own types, types should be removed from Definitely Typed to avoid confusion.</p>
+<p>You can remove it by running <code>pnpm run not-needed &lt;typingsPackageName&gt; &lt;asOfVersion&gt; [&lt;libraryName&gt;]</code>.</p>
+<ul>
+<li><code>&lt;typingsPackageName&gt;</code>: This is the name of the directory to delete.</li>
+<li><code>&lt;asOfVersion&gt;</code>: A stub will be published to <code>@types/&lt;typingsPackageName&gt;</code> with this version. Should be higher than any currently published version and should be a version of <code>&lt;libraryName&gt;</code> on npm.</li>
+<li><code>&lt;libraryName&gt;</code>: Name of npm package that replaces the Definitely Typed types. Usually this is identical to <code>&lt;typingsPackageName&gt;</code>, in which case you can omit it.</li>
+</ul>
+<p>If a package was never on Definitely Typed, it does not need to be added to <code>notNeededPackages.json</code>.</p>
+<h4 id="running-tests" class="tsd-anchor-link">Running tests<a href="#running-tests" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Test your changes by running <code>pnpm test &lt;package to test&gt;</code> where <code>&lt;package to test&gt;</code> is the name of your package.
+You need to run this from the DefinitelyTyped directory because individual package.jsons don't define test scripts.</p>
+<p>This script uses <a href="https://github.com/microsoft/DefinitelyTyped-tools/tree/master/packages/dtslint">dtslint</a> to run the TypeScript compiler against your dts files.</p>
+<p>Once you have all your changes ready, use <code>pnpm run test-all</code> to see how your changes affect other modules.</p>
+<h5 id="arethetypeswrongcli-checks" class="tsd-anchor-link">@arethetypeswrong/cli (<code>attw</code>) checks<a href="#arethetypeswrongcli-checks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h5>
+<p>dtslint includes module format and <code>package.json</code> configuration checks from <a href="https://github.com/arethetypeswrong/arethetypeswrong.github.io/blob/main/packages/cli">@arethetypeswrong/cli</a>. The checks run only if a SemVer-major-compatible implementation package can be found on npm to compare against the DefinitelyTyped package. (DefinitelyTyped packages marked as <code>nonNpm</code> in their <code>package.json</code> are skipped.)</p>
+<p>Many packages currently fail the <code>attw</code> checks and need to be fixed. To allow us to make incremental progress, failed <code>attw</code> checks do not fail the <code>dtslint</code> run when the package is listed in <code>failingPackages</code> in <a href="media/attw.json"><code>attw.json</code></a>, but they will still be reported in the <code>pnpm test my-package</code> output. If you fix the package, remove it from <code>failingPackages</code> so that <code>attw</code> checks can start failing <code>dtslint</code> runs.</p>
+<p>All problems reported by <code>attw</code> have documentation linked in the output. Some rules of thumb to help avoid problems:</p>
+<ul>
+<li>
+<p>The <code>package.json</code> in the DefinitelyTyped package must have matching <code>type</code> and <code>exports</code> fields if the implementation package uses them in its <code>package.json</code>. For example, if an implementation <code>package.json</code> looks like:</p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;my-package&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;version&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;1.0.1&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;module&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;main&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;dist/cjs/index.cjs&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;exports&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">        </span><span class="hl-10">&quot;.&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">            </span><span class="hl-10">&quot;import&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;./dist/esm/index.js&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">            </span><span class="hl-10">&quot;require&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;./dist/cjs/index.cjs&quot;</span><br/><span class="hl-1">        },</span><br/><span class="hl-1">        </span><span class="hl-10">&quot;./subpath&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">            </span><span class="hl-10">&quot;import&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;./dist/esm/subpath.js&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">            </span><span class="hl-10">&quot;require&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;./dist/cjs/subpath.cjs&quot;</span><br/><span class="hl-1">        }</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p>then the DefinitelyTyped <code>package.json</code> should look something like:</p>
+<pre><code class="json5"><span class="hl-1">{</span><br/><span class="hl-1">    </span><span class="hl-2">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;@types/my-package&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">&quot;version&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;1.0.9999&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;module&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">&quot;types&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;index.d.ts&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">&quot;exports&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">        </span><span class="hl-2">&quot;.&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">            </span><span class="hl-2">&quot;import&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;./index.d.ts&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">            </span><span class="hl-2">&quot;require&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;./index.d.cts&quot;</span><br/><span class="hl-1">        },</span><br/><span class="hl-1">        </span><span class="hl-2">&quot;./subpath&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">            </span><span class="hl-2">&quot;import&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;./subpath.d.ts&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">             </span><span class="hl-2">&quot;require&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;./subpath.d.cts&quot;</span><br/><span class="hl-1">        }</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Notice that each <code>exports</code> subpath is reflected, and each JavaScript file has a corresponding declaration file with a matching file extension—a <code>.d.ts</code> file types a <code>.js</code> file, not a <code>.mjs</code> or <code>.cjs</code> file!</p>
+</li>
+<li>
+<p>When the implementation package uses <code>module.exports = ...</code>, the DefinitelyTyped package should use <code>export =</code>, not <code>export default</code>. (Alternatively, if the <code>module.exports</code> is just an object of named properties, the DefinitelyTyped package can use a series of named exports.) The most common obstacle to correcting this problem is confusion about how to export types in addition to the primary export. For example, assume these types are incorrectly using <code>export default</code>:</p>
+<pre><code class="ts"><span class="hl-8">export</span><span class="hl-1"> </span><span class="hl-3">interface</span><span class="hl-1"> </span><span class="hl-9">Options</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-4">// ...</span><br/><span class="hl-1">}</span><br/><span class="hl-8">export</span><span class="hl-1"> </span><span class="hl-8">default</span><span class="hl-1"> </span><span class="hl-3">function</span><span class="hl-1"> </span><span class="hl-0">doSomething</span><span class="hl-1">(</span><span class="hl-11">options</span><span class="hl-1">: </span><span class="hl-9">Options</span><span class="hl-1">): </span><span class="hl-9">void</span><span class="hl-1">;</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Changing the <code>export default</code> to an <code>export =</code> creates an error:</p>
+<pre><code class="ts"><span class="hl-8">export</span><span class="hl-1"> </span><span class="hl-3">interface</span><span class="hl-1"> </span><span class="hl-9">Options</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-4">// ...</span><br/><span class="hl-1">}</span><br/><span class="hl-3">declare</span><span class="hl-1"> </span><span class="hl-3">function</span><span class="hl-1"> </span><span class="hl-0">doSomething</span><span class="hl-1">(</span><span class="hl-11">options</span><span class="hl-1">: </span><span class="hl-9">Options</span><span class="hl-1">): </span><span class="hl-9">void</span><span class="hl-1">;</span><br/><span class="hl-8">export</span><span class="hl-1"> = </span><span class="hl-11">doSomething</span><span class="hl-1">;</span><br/><span class="hl-4">// ^^^^^^^^^^^^^^^^^</span><br/><span class="hl-4">// Error: An export assignment cannot be used in a module with other exported elements.</span>
+</code><button type="button">Copy</button></pre>
+
+<p>To fix this, move the types inside a namespace with the same name as the function:</p>
+<pre><code class="ts"><span class="hl-3">declare</span><span class="hl-1"> </span><span class="hl-3">namespace</span><span class="hl-1"> </span><span class="hl-9">doSomething</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-8">export</span><span class="hl-1"> </span><span class="hl-3">interface</span><span class="hl-1"> </span><span class="hl-9">Options</span><span class="hl-1"> {</span><br/><span class="hl-1">        </span><span class="hl-4">// ...</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">}</span><br/><span class="hl-3">declare</span><span class="hl-1"> </span><span class="hl-3">function</span><span class="hl-1"> </span><span class="hl-0">doSomething</span><span class="hl-1">(</span><span class="hl-11">options</span><span class="hl-1">: </span><span class="hl-9">doSomething</span><span class="hl-1">.</span><span class="hl-9">Options</span><span class="hl-1">): </span><span class="hl-9">void</span><span class="hl-1">;</span><br/><span class="hl-8">export</span><span class="hl-1"> = </span><span class="hl-11">doSomething</span><span class="hl-1">;</span>
+</code><button type="button">Copy</button></pre>
+
+</li>
+</ul>
+<p>If you need help fixing a problem, please ask in the DefinitelyTyped channel on the <a href="https://discord.gg/typescript">TypeScript Community Discord server</a>.</p>
+<h4 id="naming" class="tsd-anchor-link">Naming<a href="#naming" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>If you are adding typings for an npm package, create a directory with the same name.
+If the package you are adding typings for is not on npm, set <code>&quot;nonNpm&quot;: true</code> in the <code>package.json</code>, and make sure the name you choose for it does not conflict with the name of a package on npm.
+(You can use <code>npm info &lt;my-package&gt;</code> to check for the existence of the <code>&lt;my-package&gt;</code> package.)</p>
+<p>In rare occasions, <code>nonNpm</code> may be set to <code>&quot;conflict&quot;</code>, which incidates that there is a package on npm with the same name, but the types intentionally conflict with that package.
+This can be true for packages which define an environment like <code>@types/node</code> or for dummy packages like <code>aws-lambda</code>. Avoid using <code>&quot;conflict&quot;</code> where possible.</p>
+<h4 id="" class="tsd-anchor-link"><code>&lt;my-package&gt;-tests.ts</code></h4>
+<p>There should be a <code>&lt;my-package&gt;-tests.ts</code> file, which is considered your test file, along with any <code>*.ts</code> files it imports.
+If you don't see any test files in the module's folder, create a <code>&lt;my-package&gt;-tests.ts</code>.
+These files are used to validate the API exported from the <code>*.d.ts</code> files which are shipped as <code>@types/&lt;my-package&gt;</code>.
+They do not themselves ship.</p>
+<p>Changes to the <code>*.d.ts</code> files should include a corresponding <code>*.ts</code> file change which shows the API being used, so that someone doesn't accidentally break code you depend on.
+For example, this change to a function in a <code>.d.ts</code> file adding a new param to a function:</p>
+<p><code>index.d.ts</code>:</p>
+<pre><code class="diff">- export function twoslash(body: string): string
++ export function twoslash(body: string, config?: { version: string }): string
+</code><button type="button">Copy</button></pre>
+
+<p><code>&lt;my-package&gt;-tests.ts</code>:</p>
+<pre><code class="diff">import {twoslash} from "./"
+
+// $ExpectType string
+const result = twoslash("//")
+
++ // Handle options param
++ const resultWithOptions = twoslash("//", { version: "3.7" })
++ // When the param is incorrect
++ // @ts-expect-error
++ const resultWithOptions = twoslash("//", {  })
+</code><button type="button">Copy</button></pre>
+
+<p>If you're wondering where to start with test code, the examples in the README of the original package are a great place to start.</p>
+<p>You can <a href="#running-tests">validate your changes</a> with <code>npm test &lt;package to test&gt;</code> from the root of this repo, which takes changed files into account.</p>
+<p>Use <code>$ExpectType</code> to assert that an expression is of a given type and <code>@ts-expect-error</code> to assert that a compile error. Examples:</p>
+<pre><code class="js"><span class="hl-4">// $ExpectType void</span><br/><span class="hl-0">f</span><span class="hl-1">(</span><span class="hl-12">1</span><span class="hl-1">);</span><br/><br/><span class="hl-4">// @ts-expect-error</span><br/><span class="hl-0">f</span><span class="hl-1">(</span><span class="hl-2">&quot;one&quot;</span><span class="hl-1">);</span>
+</code><button type="button">Copy</button></pre>
+
+<p>For more details, see <a href="https://github.com/Microsoft/DefinitelyTyped-tools/tree/master/packages/dtslint#write-tests">dtslint</a> readme.</p>
+<h5 id="linter" class="tsd-anchor-link">Linter: <code>.eslintrc.json</code><a href="#linter" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h5>
+<p>If for some reason a lint rule needs to be disabled, disable it for a specific line:</p>
+<pre><code class="ts"><span class="hl-4">// eslint-disable-next-line no-const-enum</span><br/><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-3">enum</span><span class="hl-1"> </span><span class="hl-9">Const</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-13">One</span><span class="hl-1">,</span><br/><span class="hl-1">}</span><br/><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-3">enum</span><span class="hl-1"> </span><span class="hl-9">Enum</span><span class="hl-1"> { </span><span class="hl-4">// eslint-disable-line no-const-enum</span><br/><span class="hl-1">    </span><span class="hl-13">Two</span><span class="hl-1">,</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p>You can still disable rules with an .eslintrc.json, but should not in new packages.
+Disabling rules for the entire package makes it harder to review.</p>
+<h4 id="-1" class="tsd-anchor-link"><code>tsconfig.json</code><a href="#-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><code>tsconfig.json</code> should have <code>noImplicitAny</code>, <code>noImplicitThis</code>, <code>strictNullChecks</code> and <code>strictFunctionTypes</code> set to <code>true</code>.</p>
+<p>You may edit the <code>tsconfig.json</code> to add new test files, to add <code>&quot;target&quot;: &quot;es6&quot;</code> (needed for async functions), to add to <code>&quot;lib&quot;</code> or to add the <code>&quot;jsx&quot;</code> compiler option.</p>
+<h5 id="-2" class="tsd-anchor-link"><code>esModuleInterop</code>/<code>allowSyntheticDefaultImports</code><a href="#-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h5>
+<p>TL;DR: <code>esModuleInterop</code> and <code>allowSyntheticDefaultImports</code> are <em>not allowed</em> in your <code>tsconfig.json</code>.</p>
+<blockquote>
+<p>These options make it possible to write a default import for a CJS export, modeling the built-in interoperability between CJS and ES modules in Node and in some JS bundlers:</p>
+<pre><code class="tsx"><span class="hl-4">// component.d.ts</span><br/><span class="hl-3">declare</span><span class="hl-1"> </span><span class="hl-3">class</span><span class="hl-1"> </span><span class="hl-9">Component</span><span class="hl-1"> {​​​​​}​​​​​</span><br/><span class="hl-4">// CJS export, modeling `module.exports = Component` in JS</span><br/><span class="hl-8">export</span><span class="hl-1"> = </span><span class="hl-11">Component</span><span class="hl-1">;</span><br/><br/><span class="hl-4">// index.d.ts</span><br/><span class="hl-4">// ESM default import, only allowed under &#39;esModuleInterop&#39; or &#39;allowSyntheticDefaultExports&#39;</span><br/><span class="hl-8">import</span><span class="hl-1"> </span><span class="hl-11">Component</span><span class="hl-1"> </span><span class="hl-8">from</span><span class="hl-1"> </span><span class="hl-2">&quot;./component&quot;</span><span class="hl-1">;</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Since the compile-time validity of the import in <code>index.d.ts</code> is dependent upon specific compilation settings, which users of your types do not inherit, using this pattern in DefinitelyTyped would force users to change their own compilation settings, which might be incorrect for their runtime. Instead, you must write a CJS import for a CJS export to ensure widespread, config-independent compatibility:</p>
+<pre><code class="ts"><span class="hl-4">// index.d.ts</span><br/><span class="hl-4">// CJS import, modeling `const Component = require(&quot;./component&quot;)` in JS</span><br/><span class="hl-8">import</span><span class="hl-1"> </span><span class="hl-11">Component</span><span class="hl-1"> = </span><span class="hl-8">require</span><span class="hl-1">(</span><span class="hl-2">&quot;./component&quot;</span><span class="hl-1">);</span>
+</code><button type="button">Copy</button></pre>
+
+</blockquote>
+<h4 id="-3" class="tsd-anchor-link"><code>package.json</code><a href="#-3" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>This file is required and should follow this template:</p>
+<pre><code class="json5"><span class="hl-1">{</span><br/><span class="hl-1">    </span><span class="hl-2">&quot;private&quot;</span><span class="hl-1">: </span><span class="hl-3">true</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;@types/PACKAGE-NAME&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">&quot;version&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;1.2.9999&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">&quot;projects&quot;</span><span class="hl-1">: [</span><br/><span class="hl-1">        </span><span class="hl-2">&quot;https://aframe.io/&quot;</span><br/><span class="hl-1">    ],</span><br/><span class="hl-1">    </span><span class="hl-2">&quot;dependencies&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">        </span><span class="hl-2">&quot;@types/DEPENDENCY-1&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;*&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-2">&quot;@types/DEPENDENCY-2&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;*&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    </span><span class="hl-2">&quot;devDependencies&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">        </span><span class="hl-2">&quot;@types/PACKAGE-NAME&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;workspace:.&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    </span><span class="hl-2">&quot;owners&quot;</span><span class="hl-1">: [</span><br/><span class="hl-1">        {</span><br/><span class="hl-1">            </span><span class="hl-2">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Your Name Here&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">            </span><span class="hl-2">&quot;githubUsername&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;ghost&quot;</span><br/><span class="hl-1">        }</span><br/><span class="hl-1">    ]</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p>A <code>package.json</code> specifies <em>all</em> dependencies, including other <code>@types</code> packages.</p>
+<p>You must add non-<code>@types</code> dependencies to <a href="https://github.com/microsoft/DefinitelyTyped-tools/blob/master/packages/definitions-parser/allowedPackageJsonDependencies.txt">the list of allowed external dependencies</a>.
+<a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/pikaday/package.json">Pikaday is a good example.</a>
+These additions are approved by a maintainer, which gives us the chance to make sure that <code>@types</code> packages don't depend on malicious packages.</p>
+<p>If the implementation package uses ESM and specifies <code>&quot;type&quot;: &quot;module&quot;</code>, then you should modify package.json to match:</p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;type&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;module&quot;</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p>This also applies if the implementation package has <code>exports</code> in its package.json.</p>
+<h5 id="peer-dependencies" class="tsd-anchor-link">Peer dependencies<a href="#peer-dependencies" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h5>
+<p>Definitely Typed allows <code>peerDependencies</code> in <code>package.json</code>.
+Peer dependencies can help prevent situations where a package manager unexpectedly installs too-new versions or more than one version of the same package.
+However, peer dependencies have downsides; package managers differ in their handling of peer dependencies (e.g., <code>yarn</code> does not auto-install them, <code>npm</code> requires <code>--legacy-peer-deps</code> for mismatches).
+As such, PRs introducing new peer dependencies require maintainer approval and should be limited to specific circumstances.</p>
+<p><strong>In general, types packages should only have a peer dependency if the upstream package has a peer dependency on the same package (or its types).</strong>
+For example, a DT package for a React component can specify a peer dependency on <code>@types/react@*</code>, as the consumer will have needed to install <code>@types/react</code> to use JSX in the first place.
+If the consumer installs <code>@types/react@16</code> in their project, but a newer version of <code>@types/react</code> is available on npm, the peer dependency may help the package manager choose <code>@types/react@16</code> instead of that newer version.
+Similarly, <code>chai-as-promised</code> has a peer dependency on <code>chai</code>, so <code>@types/chai-as-promised</code> should have a peer dependency on <code>@types/chai</code>.</p>
+<p>There are some cases where the upstream package does not have a peer dependency on the types package, but a peer dependency is still appropriate.
+These are typically cases where the upstream package extends another package and assumes it exists, so <em>should</em> have declared a peer dependency as it extends another package, but did not.
+For example, <code>chai-match-pattern</code> extends <code>chai</code>, but does not declare a peer dependency on <code>chai</code>, but needs it to function. <code>@types/chai-match-pattern</code> should have a peer dependency on <code>@types/chai</code>.</p>
+<p>If a package simply exposes types from another package as a part of its API due to a regular dependency in the upstream package, it <em>should not</em> use a peer dependency.
+For example, <code>express</code> has <code>qs</code> in its <code>&quot;dependencies&quot;</code>. When users install <code>express</code>, they don't need to manually install <code>qs</code>. Likewise, <code>@types/express</code> has <code>@types/qs</code> in its <code>&quot;dependencies&quot;</code>.
+It would be incorrect to declare <code>@types/qs</code> as a peer dependency of <code>@types/express</code>, since that would require some downstream consumers to manually install <code>@types/qs</code>.</p>
+<h4 id="-4" class="tsd-anchor-link"><code>.npmignore</code><a href="#-4" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>This file defines which files are to be included in each <code>@types</code> package. It must take a specific form. For packages with only one version in the repo:</p>
+<pre><code class="ignore">*
+!**/*.d.ts
+!**/*.d.cts
+!**/*.d.mts
+!**/*.d.*.ts
+</code><button type="button">Copy</button></pre>
+
+<p>Which is to say &quot;ignore all files, but don't ignore any declaration files&quot;. For packages that have more than one version in the repo, the &quot;latest&quot; version (at the top level) should contain something like:</p>
+<pre><code class="ignore">*
+!**/*.d.ts
+!**/*.d.cts
+!**/*.d.mts
+!**/*.d.*.ts
+/v15/
+/v16/
+/v17/
+</code><button type="button">Copy</button></pre>
+
+<p>Which is the same as the previous <code>.npmignore</code> but ignoring each of the versioned child directories.</p>
+<p>CI will fail if this file contains the wrong contents and provide the intended value. No matter what this file contains, the publisher will only publish declaration files.</p>
+<h4 id="common-mistakes" class="tsd-anchor-link">Common mistakes<a href="#common-mistakes" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<ul>
+<li>First, follow advice from the <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html">handbook</a>.</li>
+<li>Formatting: <a href="https://dprint.dev">dprint</a> is set up on this repo, so you can run <code>pnpm dprint fmt -- 'path/to/package/**/*.ts'</code>.
+<ul>
+<li>Consider using the VS Code <code>.vscode/settings.template.json</code> (or equivalent for other editors) to format on save with the <a href="https://marketplace.visualstudio.com/items?itemName=dprint.dprint">VS Code dprint extension</a></li>
+</ul>
+</li>
+<li><code>function sum(nums: number[]): number</code>: Use <code>ReadonlyArray</code> if a function does not write to its parameters.</li>
+<li><code>interface Foo { new(): Foo; }</code>:
+This defines a type of objects that are new-able. You probably want <code>declare class Foo { constructor(); }</code>.</li>
+<li><code>const Class: { new(): IClass; }</code>:
+Prefer to use a class declaration <code>class Class { constructor(); }</code> instead of a new-able constant.</li>
+<li><code>getMeAT&lt;T&gt;(): T</code>:
+If a type parameter does not appear in the types of any parameters, you don't really have a generic function, you just have a disguised type assertion.
+Prefer to use a real type assertion, e.g. <code>getMeAT() as number</code>.
+Example where a type parameter is acceptable: <code>function id&lt;T&gt;(value: T): T;</code>.
+Example where it is not acceptable: <code>function parseJson&lt;T&gt;(json: string): T;</code>.
+Exception: <code>new Map&lt;string, number&gt;()</code> is OK.</li>
+<li>Using the types <code>Function</code> and <code>Object</code> is almost never a good idea. In 99% of cases it's possible to specify a more specific type. Examples are <code>(x: number) =&gt; number</code> for <a href="https://www.typescriptlang.org/docs/handbook/2/functions.html#function-type-expressions">functions</a> and <code>{ x: number, y: number }</code> for objects. If there is no certainty at all about the type, <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html#any"><code>any</code></a> is the right choice, not <code>Object</code>. If the only known fact about the type is that it's some object, use the type <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-2.html#object-type"><code>object</code></a>, not <code>Object</code> or <code>{ [key: string]: any }</code>.</li>
+<li><code>var foo: string | any</code>:
+When <code>any</code> is used in a union type, the resulting type is still <code>any</code>. So, while the <code>string</code> portion of this type annotation may <em>look</em> useful, it in fact offers no additional typechecking over simply using <code>any</code>.
+Depending on the intention, acceptable alternatives could be <code>any</code>, <code>string</code> or <code>string | object</code>.</li>
+</ul>
+<h3 id="definition-owners" class="tsd-anchor-link">Definition owners<a href="#definition-owners" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<blockquote>
+<p>TL;DR: do not modify <code>.github/CODEOWNERS</code>, always modify list of the owners in <code>package.json</code>.</p>
+</blockquote>
+<p>DT has the concept of &quot;Definition Owners&quot; which are people who want to maintain the quality of a particular module's types.</p>
+<ul>
+<li>Adding yourself to the list will cause you to be notified (via your GitHub username) whenever someone makes a pull request or issue about the package.</li>
+<li>Your PR reviews will have a higher precedence of importance to <a href="https://github.com/microsoft/DefinitelyTyped-tools/tree/main/packages/mergebot">the bot</a> which maintains this repo.</li>
+<li>The DT maintainers are putting trust in the definition owners to ensure a stable eco-system, please don't add yourself lightly.</li>
+</ul>
+<p>To add yourself as a Definition Owner, modify the <code>owners</code> array in <code>package.json</code>:</p>
+<pre><code class="json"><span class="hl-2">&quot;owners&quot;</span><span class="hl-1">: [</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">        </span><span class="hl-10">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Some Person&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-10">&quot;githubUsername&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;somebody&quot;</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">    {</span><br/><span class="hl-1">        </span><span class="hl-10">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;Some Corp&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-10">&quot;url&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;https://example.org&quot;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">]</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Note that this list is <em>not</em> used to provide credit for contributions; it is only used for managing PR reviews.</p>
+<p>Once a week the Definition Owners are synced to the file <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/.github/CODEOWNERS">.github/CODEOWNERS</a> which is our source of truth.</p>
+<h2 id="the-history-of-definitely-typed" class="tsd-anchor-link">The history of Definitely Typed<a href="#the-history-of-definitely-typed" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Definitely Typed is one of the most active repositories on GitHub. You might have wondered how the project came to be. @johnnyreilly wrote a history of Definitely Typed. It tells the story of the early days of Definitely Typed, from a repository created by @borisyankov, to the point where it became a pivotal part of the TypeScript ecosystem. <a href="https://johnnyreilly.com/definitely-typed-the-movie">You can read the story of Definitely Typed here</a>.</p>
+<h2 id="faq" class="tsd-anchor-link">FAQ<a href="#faq" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h4 id="what-exactly-is-the-relationship-between-this-repository-and-the-packages-on-npm" class="tsd-anchor-link">What exactly is the relationship between this repository and the <code>@types</code> packages on npm?<a href="#what-exactly-is-the-relationship-between-this-repository-and-the-packages-on-npm" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>The <code>master</code> branch is automatically published to the <code>@types</code> scope on npm thanks to <a href="https://github.com/microsoft/DefinitelyTyped-tools/tree/master/packages/publisher">DefinitelyTyped-tools</a>.</p>
+<h4 id="ive-submitted-a-pull-request-how-long-until-it-is-merged" class="tsd-anchor-link">I've submitted a pull request. How long until it is merged?<a href="#ive-submitted-a-pull-request-how-long-until-it-is-merged" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>It depends, but most pull requests will be merged within a week.
+Some PRs can be merged by the owners of a module and they can be merged much faster.
+Roughly:</p>
+<blockquote>
+<p>PRs which only change the types of a module and have corresponding tests changes will be merged much faster</p>
+</blockquote>
+<p>PRs that have been approved by an owner listed in the definition's <code>package.json</code> are usually merged more quickly; PRs for new definitions will take more time as they require more review from maintainers. Each PR is reviewed by a TypeScript or Definitely Typed team member before being merged, so please be patient as human factors may cause delays. Check the <a href="https://github.com/orgs/DefinitelyTyped/projects/1">Pull Request Status Board</a> to see progress as maintainers work through the open PRs.</p>
+<h4 id="id-like-to-submit-a-change-to-a-very-popular-project-why-are-they-treated-differently" class="tsd-anchor-link">I'd like to submit a change to a very popular project, why are they treated differently?<a href="#id-like-to-submit-a-change-to-a-very-popular-project-why-are-they-treated-differently" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>For changes to very popular modules, e.g. Node/Express/Jest which have many millions of downloads each per week on npm, the requirements for contributions are a bit higher.
+Changes to these projects can have massive ecosystem effects and so we treat changes to them with a lot of care.
+These modules require both a sign-off from a DT maintainer and enthusiastic support from the module owners. The bar for passing this can be quite high and often PRs can go stale because it doesn't have a champion.
+If you're finding that no-one is committing, try to make your PR have a smaller focus.</p>
+<h4 id="my-pr-is-merged-when-will-the-npm-package-be-updated" class="tsd-anchor-link">My PR is merged; when will the <code>@types</code> npm package be updated?<a href="#my-pr-is-merged-when-will-the-npm-package-be-updated" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>npm packages should update within an hour. If it's been more than an hour, mention the PR number on <a href="https://discord.gg/typescript">the Definitely Typed channel on the TypeScript Community Discord server</a> and the current maintainer will get the correct team member to investigate.</p>
+<h4 id="im-writing-a-definition-that-depends-on-another-definition-should-i-use-or-an-import" class="tsd-anchor-link">I'm writing a definition that depends on another definition. Should I use <code>&lt;reference types=&quot;&quot; /&gt;</code> or an import?<a href="#im-writing-a-definition-that-depends-on-another-definition-should-i-use-or-an-import" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>If the module you're referencing is a module (uses <code>export</code>), use an import.
+If the module you're referencing is an ambient module (uses <code>declare module</code>) or just declares globals, use <code>&lt;reference types=&quot;&quot; /&gt;</code>.</p>
+<h4 id="some-packages-have-a-that-is-missing---or-" class="tsd-anchor-link">Some packages have a <code>tsconfig.json</code> that is missing <code>&quot;noImplicitAny&quot;: true</code>, <code>&quot;noImplicitThis&quot;: true</code> or <code>&quot;strictNullChecks&quot;: true</code>.<a href="#some-packages-have-a-that-is-missing---or-" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Then they are wrong and we've not noticed yet. You can help by submitting a pull request to fix them.</p>
+<h4 id="are-files-formatted-automatically" class="tsd-anchor-link">Are Files Formatted Automatically?<a href="#are-files-formatted-automatically" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Yes, using <a href="https://dprint.dev">dprint</a>.
+We recommend using a <a href="https://dprint.dev/install/#editor-extensions">dprint extension for your editor</a>.</p>
+<p>Alternatively, you can enable a git hook which will format your code automatically. Run <code>pnpm run setup-hooks</code>. Then, when you commit, <code>dprint fmt</code> command will be executed on changed files.</p>
+<p>Pull requests do not require correct formatting to be merged.
+Any unformatted code will be automatically reformatted after being merged.</p>
+<blockquote>
+<p>💡 If you're a VS Code user, we suggest copying the <code>.vscode/settings.template.json</code> file to <code>.vscode/settings.json</code>.
+That template sets the <a href="https://marketplace.visualstudio.com/items?itemName=dprint.dprint">dprint VS Code extension</a> as the default formatter in the repo.</p>
+</blockquote>
+<h4 id="can-i-request-a-definition" class="tsd-anchor-link">Can I request a definition?<a href="#can-i-request-a-definition" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Here are the <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/categories/request-a-new-types-package">currently requested definitions</a>.</p>
+<h4 id="what-about-type-definitions-for-the-dom" class="tsd-anchor-link">What about type definitions for the DOM?<a href="#what-about-type-definitions-for-the-dom" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>If types are part of a web standard, they should be contributed to <a href="https://github.com/Microsoft/TypeScript-DOM-lib-generator">TypeScript-DOM-lib-generator</a> so that they can become part of the default <code>lib.dom.d.ts</code>.</p>
+<h4 id="what-about-type-definitions-with-no-matching-package" class="tsd-anchor-link">What about type definitions with no matching package?<a href="#what-about-type-definitions-with-no-matching-package" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>If there's no source JavaScript code at all, for example if you're writing helper types or types for a spec, you should publish the types yourself, not on Definitely Typed.
+Because they're meant to provide types for existing JavaScript code, <code>@types</code> packages are not meant to be imported directly.
+That is, you shouldn't create a Definitely Typed package that's meant to be used like <code>import type { ... } from &quot;@types/foo&quot;</code>.
+Nor should you expect to write <code>import type { ... } from &quot;foo&quot;</code> when there's no <code>foo</code> installed.</p>
+<p>This is different from providing types for a browser only JavaScript library or types for an entire environment like node, bun, et al.
+There, the types are either resolved implicitly or using <code>/// &lt;references types=&quot;foo&quot; /&gt;</code>.</p>
+<h4 id="should-i-add-an-empty-namespace-to-a-package-that-doesnt-export-a-module-to-use-es6-style-imports" class="tsd-anchor-link">Should I add an empty namespace to a package that doesn't export a module to use ES6 style imports?<a href="#should-i-add-an-empty-namespace-to-a-package-that-doesnt-export-a-module-to-use-es6-style-imports" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Some packages, like <a href="https://github.com/chaijs/chai-http">chai-http</a>, export a function.</p>
+<p>Importing this module with an ES6 style import in the form <code>import * as foo from &quot;foo&quot;;</code> leads to the error:</p>
+<blockquote>
+<p>error TS2497: Module 'foo' resolves to a non-module entity and cannot be imported using this construct.</p>
+</blockquote>
+<p>This error can be suppressed by merging the function declaration with an empty namespace of the same name, but this practice is discouraged.
+This is a commonly cited <a href="https://stackoverflow.com/questions/39415661/what-does-resolves-to-a-non-module-entity-and-cannot-be-imported-using-this">Stack Overflow answer</a> regarding this matter.</p>
+<p>It is more appropriate to import the module using the <code>import foo = require(&quot;foo&quot;);</code> syntax.
+Nevertheless, if you want to use a default import like <code>import foo from &quot;foo&quot;;</code> you have two options:</p>
+<ul>
+<li>you can use the <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-8.html#support-for-default-import-interop-with-systemjs"><code>--allowSyntheticDefaultImports</code> compiler option</a> if your module runtime supports an interop scheme for non-ECMAScript modules, i.e. if default imports work in your environment (e.g. Webpack, SystemJS, esm).</li>
+<li>you can use the <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#support-for-import-d-from-cjs-form-commonjs-modules-with---esmoduleinterop"><code>--esModuleInterop</code> compiler option</a> if you want TypeScript to take care of non-ECMAScript interop (since TypeScript 2.7).</li>
+</ul>
+<h4 id="a-package-uses-but-i-prefer-to-use-default-imports-can-i-change--to-" class="tsd-anchor-link">A package uses <code>export =</code>, but I prefer to use default imports. Can I change <code>export =</code> to <code>export default</code>?<a href="#a-package-uses-but-i-prefer-to-use-default-imports-can-i-change--to-" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Like in the previous question, refer to using either the <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-8.html#support-for-default-import-interop-with-systemjs"><code>--allowSyntheticDefaultImports</code></a>
+or <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#support-for-import-d-from-cjs-form-commonjs-modules-with---esmoduleinterop"><code>--esModuleInterop</code></a>
+compiler options.</p>
+<p>Do not change the type definition if it is accurate.
+For an npm package, <code>export =</code> is accurate if <code>node -p 'require(&quot;foo&quot;)'</code> works to import a module and <code>export default</code> is accurate if <code>node -p 'require(&quot;foo&quot;).default'</code> works to import a module.</p>
+<h4 id="i-want-to-use-features-from-very-new-typescript-versions" class="tsd-anchor-link">I want to use features from very new TypeScript versions.<a href="#i-want-to-use-features-from-very-new-typescript-versions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Then you will have set the minimum supported version by specifying <code>&quot;minimumTypeScriptVersion&quot;: &quot;X.Y&quot;</code> in <code>package.json</code>.</p>
+<p>However, if your project needs to maintain types that are compatible with, say, 3.7 and above <em>at the same time as</em> types that are compatible with 3.6 or below, you will need to use the <code>typesVersions</code> feature.
+You can find a detailed explanation of this feature in the <a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html#version-selection-with-typesversions">official TypeScript documentation</a>.</p>
+<p>Here's a short example to get you started:</p>
+<ol>
+<li>
+<p>You'll have to add <code>typesVersions</code> to <code>package.json</code>:</p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;private&quot;</span><span class="hl-1">: </span><span class="hl-3">true</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;types&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;index&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;typesVersions&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">        </span><span class="hl-10">&quot;&lt;=3.6&quot;</span><span class="hl-1">: { </span><span class="hl-10">&quot;*&quot;</span><span class="hl-1">: [</span><span class="hl-2">&quot;ts3.6/*&quot;</span><span class="hl-1">] }</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+</li>
+<li>
+<p>Create the sub-directory mentioned in the <code>typesVersions</code> field inside your types directory (<code>ts3.6/</code> in this example).
+<code>ts3.6/</code> will support TypeScript versions 3.6 and below, so copy the existing types and tests there.</p>
+</li>
+<li>
+<p>Back in the root of the package, add the TypeScript 3.7 features you want to use.
+When people install the package, TypeScript 3.6 and below will start from <code>ts3.6/index.d.ts</code>, whereas TypeScript 3.7 and above will start from <code>index.d.ts</code>.</p>
+<p>You can look at <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/f2512c2cf7cdcf9a487d989e288174e49b7839ab/types/bluebird">bluebird</a> for an example.</p>
+</li>
+</ol>
+<h4 id="i-want-to-add-a-dom-api-not-present-in-typescript-by-default" class="tsd-anchor-link">I want to add a DOM API not present in TypeScript by default.<a href="#i-want-to-add-a-dom-api-not-present-in-typescript-by-default" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>This may belong in <a href="https://github.com/Microsoft/TypeScript-DOM-lib-generator#readme">TypeScript-DOM-lib-generator</a>. See the guidelines there.
+If the standard is still a draft, it belongs here.
+Use a name beginning with <code>dom-</code> and include a link to the standard as the &quot;Project&quot; link in <code>package.json</code>.
+When it graduates draft mode, we may remove it from Definitely Typed and deprecate the associated <code>@types</code> package.</p>
+<h4 id="how-do-definitely-typed-package-versions-relate-to-versions-of-the-corresponding-library" class="tsd-anchor-link">How do Definitely Typed package versions relate to versions of the corresponding library?<a href="#how-do-definitely-typed-package-versions-relate-to-versions-of-the-corresponding-library" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><em>NOTE: The discussion in this section assumes familiarity with <a href="https://semver.org/">Semantic versioning</a></em></p>
+<p>Each Definitely Typed package is versioned when published to npm.
+The <a href="https://github.com/microsoft/DefinitelyTyped-tools/tree/master/packages/publisher">DefinitelyTyped-tools</a> (the tool that publishes <code>@types</code> packages to npm) will set the declaration package's version by using the <code>major.minor.9999</code> version number listed in <code>package.json</code>.
+For example, here are the first few lines of Node's type declarations for version <code>20.8.x</code> at the time of writing:</p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;private&quot;</span><span class="hl-1">: </span><span class="hl-3">true</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;@types/node&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;version&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;20.8.9999&quot;</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Because the version is listed as <code>20.8.9999</code>, the npm version of the <code>@types/node</code> package will also be <code>20.8.x</code>.
+Note that the version in <code>package.json</code> should only contain <code>major.minor</code> version (e.g. <code>10.12</code>) followed by <code>.9999</code>.
+This is because only the major and minor release numbers are aligned between library packages and type declaration packages. (The <code>.9999</code> is to ensure that local <code>@types</code> packages are always newest during local development.)
+The patch release number of the type declaration package (e.g. <code>.0</code> in <code>20.8.0</code>) is initialized to zero by Definitely Typed and is incremented each time a new <code>@types/node</code> package is published to npm for the same major/minor version of the corresponding library.</p>
+<p>Sometimes type declaration package versions and library package versions can get out of sync.
+Below are a few common reasons why, in order of how much they inconvenience users of a library.
+Only the last case is typically problematic.</p>
+<ul>
+<li>As noted above, the patch version of the type declaration package is unrelated to the library patch version.
+This allows Definitely Typed to safely update type declarations for the same major/minor version of a library.</li>
+<li>If updating a package for new functionality, don't forget to update the version number to line up with that version of the library.
+If users make sure versions correspond between JavaScript packages and their respective <code>@types</code> packages, then <code>npm update</code> should typically just work.</li>
+<li>It's common for type declaration package updates to lag behind library updates because it's often library users, not maintainers, who update Definitely Typed when new library features are released.
+So, there may be a lag of days, weeks or even months before a helpful community member sends a PR to update the type declaration package for a new library release.
+If you're impacted by this, you can be the change you want to see in the world and you can be that helpful community member!</li>
+</ul>
+<p>:exclamation: If you're updating type declarations for a library, always set the <code>major.minor</code> version in <code>package.json</code> to match the library version that you're documenting! :exclamation:</p>
+<h4 id="if-a-library-is-updated-to-a-new-major-version-with-breaking-changes-how-should-i-update-its-type-declaration-package" class="tsd-anchor-link">If a library is updated to a new major version with breaking changes, how should I update its type declaration package?<a href="#if-a-library-is-updated-to-a-new-major-version-with-breaking-changes-how-should-i-update-its-type-declaration-package" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><a href="https://semver.org/">Semantic versioning</a> requires that versions with breaking changes must increment the major version number.
+For example, a library that removes a publicly exported function after its <code>3.5.8</code> release must bump its version to <code>4.0.0</code> in its next release.
+Furthermore, when the library's <code>4.0.0</code> release is out, it's Definitely Typed type declaration package should also be updated to <code>4.0.0</code>, including any breaking changes to the library's API.</p>
+<p>Many libraries have a large installed base of developers (including maintainers of other packages using that library as a dependency) who won't move right away to a new version that has breaking changes, because it might be months until a maintainer has time to rewrite code to adapt to the new version.
+In the meantime, users of old library versions still may want to update type declarations for older versions.</p>
+<p>If you intend to continue updating the older version of a library's type declarations, you may create a new subfolder (e.g. <code>/v2/</code>) named for the current (soon to be &quot;old&quot;) version and copy existing files from the current version to it.</p>
+<p>When creating a new version folder, ensure that the version field of <code>package.json</code> has been updated; <code>pnpm</code> will automatically resolve to this versioned package whenever it's needed. If other packages in the repo need to depend on this new version, ensure that their <code>package.json</code>s are also updated too.</p>
+<p>For example, if we are creating <code>types/history/v2</code>, its <code>package.json</code> would look like:</p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;private&quot;</span><span class="hl-1">: </span><span class="hl-3">true</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;@types/history&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;version&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2.4.9999&quot;</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Another package may select this version by specifying:</p>
+<pre><code class="json"><span class="hl-1">{</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;private&quot;</span><span class="hl-1">: </span><span class="hl-3">true</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;name&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;@types/browser-sync&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;version&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;2.26.9999&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-10">&quot;dependencies&quot;</span><span class="hl-1">: {</span><br/><span class="hl-1">        </span><span class="hl-10">&quot;@types/history&quot;</span><span class="hl-1">: </span><span class="hl-2">&quot;^2&quot;</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">}</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Also, <code>/// &lt;reference types=&quot;..&quot; /&gt;</code> will not work with path mapping, so dependencies must use <code>import</code>.</p>
+<h4 id="how-do-breaking-type-changes-work-if-type-declaration-packages-closely-track-the-library-packages-version" class="tsd-anchor-link">How do breaking type changes work if type declaration packages closely track the library package's version?<a href="#how-do-breaking-type-changes-work-if-type-declaration-packages-closely-track-the-library-packages-version" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p><code>@types</code> packages always type packages of the same version, so <code>@types/foo@5.4.x</code> are for <code>foo@5.4.x</code>.
+As a consequence, all changes, breaking or not, are published as patch revisions, unless paired with a major/minor bump to change the package version being targeted (coincidentally or not).</p>
+<p>When it comes to breaking changes, DT maintainers consider the popularity of the package, the upsides of the proposed breaking change, the effort that will be required for users to fix their code, and whether the change could reasonably be delayed until it can be synced with a major bump of the upstream library.</p>
+<h4 id="how-do-i-write-definitions-for-packages-that-can-be-used-globally-and-as-a-module" class="tsd-anchor-link">How do I write definitions for packages that can be used globally and as a module?<a href="#how-do-i-write-definitions-for-packages-that-can-be-used-globally-and-as-a-module" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>The TypeScript handbook contains excellent <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html">general information about writing definitions</a> and also <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-modifying-module-d-ts.html">this example definition file</a> which shows how to create a definition using ES6-style module syntax, while also specifying objects made available to the global scope. This technique is demonstrated practically in the <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/big.js/index.d.ts">definition for <code>big.js</code></a>, which is a library that can be loaded globally via script tag on a web page or imported via require or ES6-style imports.</p>
+<p>To test how your definition can be used both when referenced globally or as an imported module, create a <code>test</code> folder and place two test files in there. Name one <code>YourLibraryName-global.test.ts</code> and the other <code>YourLibraryName-module.test.ts</code>. The <em>global</em> test file should exercise the definition according to how it would be used in a script loaded on a web page where the library is available on the global scope - in this scenario you should not specify an import statement. The <em>module</em> test file should exercise the definition according to how it would be used when imported (including the <code>import</code> statement(s)). If you specify a <code>files</code> property in your <code>tsconfig.json</code> file, be sure to include both test files. A <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/big.js/test">practical example of this</a> is also available on the <code>big.js</code> definition.</p>
+<p>Please note that it is not required to fully exercise the definition in each test file - it is sufficient to test only the globally accessible elements on the global test file and fully exercise the definition in the module test file or vice versa.</p>
+<h4 id="what-about-scoped-packages" class="tsd-anchor-link">What about scoped packages?<a href="#what-about-scoped-packages" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4>
+<p>Types for a scoped package <code>@foo/bar</code> should go in <code>types/foo__bar</code>. Note the double underscore.</p>
+<h2 id="license" class="tsd-anchor-link">License<a href="#license" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>This project is licensed under the MIT license.</p>
+<p>Copyrights on the definition files are respective of each contributor listed at the beginning of each definition file.</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#definitely-typed"><span>Definitely <wbr/>Typed</span></a><ul><li><a href="#-important-this-repo-has-recently-changed-layout-"><span>!!! <wbr/>Important! <wbr/>This repo has recently changed layout! !!!</span></a></li><li><a href="#current-status"><span>Current status</span></a></li><li><a href="#what-are-declaration-files-and-how-do-i-get-them"><span>What are declaration files and how do <wbr/>I get them?</span></a></li><li><ul><li><a href="#npm"><span>npm</span></a></li><li><a href="#support-window"><span>Support <wbr/>Window</span></a></li><li><ul><li><a href="#typescript-1"><span>Type<wbr/>Script 1.*</span></a></li></ul></li></ul></li><li><a href="#how-can-i-contribute"><span>How can <wbr/>I contribute?</span></a></li><li><ul><li><a href="#testing"><span>Testing</span></a></li><li><ul><li><a href="#test-editing-an-existing-package"><span>Test editing an existing package</span></a></li><li><a href="#adding-tests-to-a-new-package"><span>Adding tests to a new package</span></a></li></ul></li><li><a href="#make-a-pull-request"><span>Make a pull request</span></a></li><li><ul><li><a href="#edit-an-existing-package"><span>Edit an existing package</span></a></li><li><a href="#create-a-new-package"><span>Create a new package</span></a></li><li><a href="#removing-a-package"><span>Removing a package</span></a></li><li><a href="#running-tests"><span>Running tests</span></a></li><li><ul><li><a href="#arethetypeswrongcli-checks"><span>@arethetypeswrong/cli () checks</span></a></li></ul></li><li><a href="#naming"><span>Naming</span></a></li><li><a href="#"><span></span></a></li><li><ul><li><a href="#linter"><span>Linter: </span></a></li></ul></li><li><a href="#-1"><span></span></a></li><li><ul><li><a href="#-2"><span>/</span></a></li></ul></li><li><a href="#-3"><span></span></a></li><li><ul><li><a href="#peer-dependencies"><span>Peer dependencies</span></a></li></ul></li><li><a href="#-4"><span></span></a></li><li><a href="#common-mistakes"><span>Common mistakes</span></a></li></ul></li><li><a href="#definition-owners"><span>Definition owners</span></a></li></ul></li><li><a href="#the-history-of-definitely-typed"><span>The history of <wbr/>Definitely <wbr/>Typed</span></a></li><li><a href="#faq"><span>FAQ</span></a></li><li><ul><li><ul><li><a href="#what-exactly-is-the-relationship-between-this-repository-and-the-packages-on-npm"><span>What exactly is the relationship between this repository and the  packages on npm?</span></a></li><li><a href="#ive-submitted-a-pull-request-how-long-until-it-is-merged"><span>I&#39;ve submitted a pull request. <wbr/>How long until it is merged?</span></a></li><li><a href="#id-like-to-submit-a-change-to-a-very-popular-project-why-are-they-treated-differently"><span>I&#39;d like to submit a change to a very popular project, why are they treated differently?</span></a></li><li><a href="#my-pr-is-merged-when-will-the-npm-package-be-updated"><span>My <wbr/>PR is merged; when will the  npm package be updated?</span></a></li><li><a href="#im-writing-a-definition-that-depends-on-another-definition-should-i-use-or-an-import"><span>I&#39;m writing a definition that depends on another definition. <wbr/>Should <wbr/>I use  or an import?</span></a></li><li><a href="#some-packages-have-a-that-is-missing---or-"><span>Some packages have a  that is missing ,  or .</span></a></li><li><a href="#are-files-formatted-automatically"><span>Are <wbr/>Files <wbr/>Formatted <wbr/>Automatically?</span></a></li><li><a href="#can-i-request-a-definition"><span>Can <wbr/>I request a definition?</span></a></li><li><a href="#what-about-type-definitions-for-the-dom"><span>What about type definitions for the <wbr/>DOM?</span></a></li><li><a href="#what-about-type-definitions-with-no-matching-package"><span>What about type definitions with no matching package?</span></a></li><li><a href="#should-i-add-an-empty-namespace-to-a-package-that-doesnt-export-a-module-to-use-es6-style-imports"><span>Should <wbr/>I add an empty namespace to a package that doesn&#39;t export a module to use <wbr/>ES6 style imports?</span></a></li><li><a href="#a-package-uses-but-i-prefer-to-use-default-imports-can-i-change--to-"><span>A package uses , but <wbr/>I prefer to use default imports. <wbr/>Can <wbr/>I change  to ?</span></a></li><li><a href="#i-want-to-use-features-from-very-new-typescript-versions"><span>I want to use features from very new <wbr/>Type<wbr/>Script versions.</span></a></li><li><a href="#i-want-to-add-a-dom-api-not-present-in-typescript-by-default"><span>I want to add a <wbr/>DOM <wbr/>API not present in <wbr/>Type<wbr/>Script by default.</span></a></li><li><a href="#how-do-definitely-typed-package-versions-relate-to-versions-of-the-corresponding-library"><span>How do <wbr/>Definitely <wbr/>Typed package versions relate to versions of the corresponding library?</span></a></li><li><a href="#if-a-library-is-updated-to-a-new-major-version-with-breaking-changes-how-should-i-update-its-type-declaration-package"><span>If a library is updated to a new major version with breaking changes, how should <wbr/>I update its type declaration package?</span></a></li><li><a href="#how-do-breaking-type-changes-work-if-type-declaration-packages-closely-track-the-library-packages-version"><span>How do breaking type changes work if type declaration packages closely track the library package&#39;s version?</span></a></li><li><a href="#how-do-i-write-definitions-for-packages-that-can-be-used-globally-and-as-a-module"><span>How do <wbr/>I write definitions for packages that can be used globally and as a module?</span></a></li><li><a href="#what-about-scoped-packages"><span>What about scoped packages?</span></a></li></ul></li></ul></li><li><a href="#license"><span>License</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html">Google Apps Script API</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>
