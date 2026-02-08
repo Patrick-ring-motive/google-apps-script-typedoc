@@ -28,18 +28,22 @@ async function bubble(d){
         await bubble(doc);
         const detail = d.querySelector('details');
         detail.setAttribute('url',url);
-        detail.appendChild(doc.querySelector('.container-main>.col-content'));
+        const cheese = doc.querySelector('.container-main>.col-content');
+        cheese.setAttribute('cheese','cheese');
+        detail.appendChild(cheese);
         const ifr = d.createElement('iframe');
         ifr.src = url;
         const prom = new Promise(resolve=>{
           ifr.onload = resolve;
           ifr.onerror = resolve;
         });
+      ifr.style.visibility = 'hidden';
         d.body.appendChild(ifr);
         
         if(window!==window.top){
           await prom;
           window.parent.document.querySelector(`[url="${location.href}"]`).appendChild(d.querySelector('.container-main>.col-content'));
+          window.parent.document.querySelector('[cheese]')?.remove?.();
         }
     }else if(d.querySelectorAll('.tsd-signature').length === 1 && d.querySelectorAll('section').length === 0){
         const url = [...d.querySelectorAll('.tsd-signature a')].pop()?.href;
@@ -50,21 +54,26 @@ async function bubble(d){
             await bubble(doc);
             const sig = d.querySelector('.tsd-signature');
             sig.setAttribute('url',url);
-            sig.appendChild(doc.querySelector('.container-main>.col-content'));
+            const cheese = doc.querySelector('.container-main>.col-content');
+            cheese.setAttribute('cheese','cheese');
+            sig.appendChild(cheese);
             const ifr = d.createElement('iframe');
             ifr.src = url;
         const prom = new Promise(resolve=>{
           ifr.onload = resolve;
           ifr.onerror = resolve;
         });
+          ifr.style.visibility = 'hidden';
         d.body.appendChild(ifr);
         
           if(window!==window.top){
             await prom;
           window.parent.document.querySelector(`[url="${location.href}"]`).appendChild(d.querySelector('.container-main>.col-content'));
+            window.parent.document.querySelector('[cheese]')?.remove?.();
         }
         }else if(window!==window.top){
           window.parent.document.querySelector(`[url="${location.href}"]`).appendChild(d.querySelector('.container-main>.col-content'));
+          window.parent.document.querySelector('[cheese]')?.remove?.();
         }
         
     }
