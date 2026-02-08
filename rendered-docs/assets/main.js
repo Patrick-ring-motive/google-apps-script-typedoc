@@ -25,7 +25,7 @@ async function bubble(d){
         const text = await res.text();
         const doc = parse(text);
         await bubble(doc);
-        const rewrite = [...doc.querySelectorAll('a:not([href^="#"][href^="http"][href^="."][href^="/"])')];
+        const rewrite = [...doc.querySelectorAll('a:not([href*="#"][href^="http"][href^="."][href^="/"])')];
         for(const link of rewrite){
           const parts = url.split('/');
           parts[parts.length - 1] = link.getAttribute('href').split('/').pop();
@@ -40,7 +40,7 @@ async function bubble(d){
             const text = await res.text();
             const doc = parse(text);
             await bubble(doc);
-            const rewrite = [...doc.querySelectorAll('a:not([href^="#"],[href^="http"],[href^="."][href^="/"])')];
+            const rewrite = [...doc.querySelectorAll('a:not([href*="#"],[href^="http"],[href^="."][href^="/"])')];
         for(const link of rewrite){
           const parts = url.split('/');
           parts[parts.length-1] = link.getAttribute('href').split('/').pop();
