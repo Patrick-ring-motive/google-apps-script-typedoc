@@ -25,7 +25,12 @@ async function bubble(d){
         const text = await res.text();
         const doc = parse(text);
         await bubble(doc);
-        const rewrite = [...doc.queryelectorAll('a[href^="./"]')];
+        const rewrite = [...doc.querySelectorAll('a:not([href^="#"][href^="http"][href^="."][href^="/"])')];
+        for(const link of rewrite){
+          const parts = url.split('/');
+          parts[parts.length-1] = link.getAttribute('href');
+          link.href = parts.join('/');
+        }
         d.querySelector('details').appendChild(doc.querySelector('.container-main>.col-content'));
         
     }else if(d.querySelectorAll('.tsd-signature').length === 1 && d.querySelectorAll('section').length === 0){
@@ -35,6 +40,12 @@ async function bubble(d){
             const text = await res.text();
             const doc = parse(text);
             await bubble(doc);
+            const rewrite = [...doc.querySelectorAll('a:not([href^="#"][href^="http"][href^="."][href^="/"])')];
+        for(const link of rewrite){
+          const parts = url.split('/');
+          parts[parts.length-1] = link.getAttribute('href');
+          link.href = parts.join('/');
+        }
             d.querySelector('.tsd-signature').appendChild(doc.querySelector('.container-main>.col-content'));
             
         }
