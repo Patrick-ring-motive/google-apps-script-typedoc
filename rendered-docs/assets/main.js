@@ -1,6 +1,7 @@
 "use strict";
 document.onload = ()=>{
   [...document.querySelectorAll('a[href*="google-apps-script"] span,a[href*="google-apps-script"]:not(:has(*))')].filter(x=>x?.textContent?.includes?.('google-apps-script')).forEach(x=>(x.textContent=x.textContent.replace('google-apps-script.','')));
+  if(window!==window.top)[...document.querySelectorAll('a[href]:not(a[href^="http"])')].forEach(x=>x.setAttribute('href',x.href));
 }
 window.onload = document.onload;
 document.onload();
@@ -25,12 +26,6 @@ async function bubble(d){
         const text = await res.text();
         const doc = parse(text);
         await bubble(doc);
-        const rewrite = [...doc.querySelectorAll('a:not([href*="#"][href^="http"][href^="."][href^="/"])')];
-        for(const link of rewrite){
-          const parts = url.split('/');
-          parts[parts.length - 1] = link.getAttribute('href').split('/').pop();
-          link.href = parts.join('/');
-        }
         d.querySelector('details').appendChild(doc.querySelector('.container-main>.col-content'));
         
     }else if(d.querySelectorAll('.tsd-signature').length === 1 && d.querySelectorAll('section').length === 0){
@@ -40,14 +35,7 @@ async function bubble(d){
             const text = await res.text();
             const doc = parse(text);
             await bubble(doc);
-            const rewrite = [...doc.querySelectorAll('a:not([href*="#"],[href^="http"],[href^="."][href^="/"])')];
-        for(const link of rewrite){
-          const parts = url.split('/');
-          parts[parts.length-1] = link.getAttribute('href').split('/').pop();
-          link.href = parts.join('/');
-        }
             d.querySelector('.tsd-signature').appendChild(doc.querySelector('.container-main>.col-content'));
-            
         }
         
     }
