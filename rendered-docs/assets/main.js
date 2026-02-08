@@ -26,8 +26,20 @@ async function bubble(d){
         const text = await res.text();
         const doc = parse(text);
         await bubble(doc);
-        d.querySelector('details').appendChild(doc.querySelector('.container-main>.col-content'));
-        
+        const detail = d.querySelector('details');
+        detail.setAttribute('url',url);
+        detail.appendChild(doc.querySelector('.container-main>.col-content'));
+        const ifr = d.createElement('iframe');
+        ifr.src = url;
+        const prom = new Promise(resolve=>{
+          ifr.onload = resolve;
+          ifr.onerror = resolve;
+        });
+        d.body.appendChild(ifr);
+        await prom;
+        if(window!==window.top){
+          window.parent.document.querySelector(`[url="${location.href}"]`).appendChild(d.querySelector('.container-main>.col-content'));
+        }
     }else if(d.querySelectorAll('.tsd-signature').length === 1 && d.querySelectorAll('section').length === 0){
         const url = [...d.querySelectorAll('.tsd-signature a')].pop()?.href;
         if(url){
@@ -35,7 +47,22 @@ async function bubble(d){
             const text = await res.text();
             const doc = parse(text);
             await bubble(doc);
-            d.querySelector('.tsd-signature').appendChild(doc.querySelector('.container-main>.col-content'));
+            const sig = d.querySelector('.tsd-signature');
+            sig.setAttribute('url',url);
+            sig.appendChild(doc.querySelector('.container-main>.col-content'));
+            const ifr = d.createElement('iframe');
+            ifr.src = url;
+        const prom = new Promise(resolve=>{
+          ifr.onload = resolve;
+          ifr.onerror = resolve;
+        });
+        d.body.appendChild(ifr);
+        await prom; 
+          if(window!==window.top){
+          window.parent.document.querySelector(`[url="${location.href}"]`).appendChild(d.querySelector('.container-main>.col-content'));
+        }
+        }else if(window!==window.top){
+          window.parent.document.querySelector(`[url="${location.href}"]`).appendChild(d.querySelector('.container-main>.col-content'));
         }
         
     }
