@@ -42,6 +42,7 @@ async function bubble(d){
         
         if(window!==window.top){
           await prom;
+          [...document.querySelectorAll('a[href]:not(a[href^="http"])')].forEach(x=>x.setAttribute('href',x.href));
           window.parent.document.querySelector(`[url="${location.href}"]`).appendChild(d.querySelector('.container-main>.col-content'));
           window.parent.document.querySelector('[cheese]')?.remove?.();
         }
@@ -68,10 +69,12 @@ async function bubble(d){
         
           if(window!==window.top){
             await prom;
+            [...document.querySelectorAll('a[href]:not(a[href^="http"])')].forEach(x=>x.setAttribute('href',x.href));
           window.parent.document.querySelector(`[url="${location.href}"]`).appendChild(d.querySelector('.container-main>.col-content'));
             window.parent.document.querySelector('[cheese]')?.remove?.();
         }
         }else if(window!==window.top){
+          [...document.querySelectorAll('a[href]:not(a[href^="http"])')].forEach(x=>x.setAttribute('href',x.href));
           window.parent.document.querySelector(`[url="${location.href}"]`).appendChild(d.querySelector('.container-main>.col-content'));
           window.parent.document.querySelector('[cheese]')?.remove?.();
         }
