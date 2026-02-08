@@ -1,12 +1,34 @@
 "use strict";
-document.onload = ()=>[...document.querySelectorAll('a[href*="google-apps-script"] span,a[href*="google-apps-script"]:not(:has(*))')].filter(x=>x?.textContent?.includes?.('google-apps-script')).forEach(x=>(x.textContent=x.textContent.replace('google-apps-script.','')));
+document.onload = ()=>{
+  [...document.querySelectorAll('a[href*="google-apps-script"] span,a[href*="google-apps-script"]:not(:has(*))')].filter(x=>x?.textContent?.includes?.('google-apps-script')).forEach(x=>(x.textContent=x.textContent.replace('google-apps-script.','')));
+}
 window.onload = document.onload;
 document.onload();
 const script = document.createElement("script");
 
 script.innerText = `document.onload();`;
 (document.body||document.firstElementChild).appendChild(script);
-setTimeout(document.onload, 100);
+setTimeout(()=>{
+  document.onload();
+    const parser = new DOMParser();
+  
+  const parse = x=>parser.parseFromString(x,'text/html');
+  
+  
+  async function bubble(d){
+      const links = d.querySelectorAll('details:not(:has(summary[data-key*="References"])) span.tsd-member-summary-name>a:not(:has(*))');
+      console.log(links);
+      if(links.length === 1){
+          const res = await fetch(links[0].href);
+          const text = await res.text();
+          const doc = parse(text);
+          d.querySelector('details').appendChild(doc.querySelector('.container-main>.col-content'));
+          bubble(doc);
+      }
+  }
+  
+  bubble(document);
+}, 100);
 addEventListener("readystatechange", document.onload);
 
 
