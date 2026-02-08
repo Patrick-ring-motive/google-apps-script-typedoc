@@ -23,8 +23,9 @@ async function bubble(d){
         const res = await fetch(links[0].href);
         const text = await res.text();
         const doc = parse(text);
+        await bubble(doc);
         d.querySelector('details').appendChild(doc.querySelector('.container-main>.col-content'));
-        bubble(doc);
+        
     }else if(d.querySelectorAll('.tsd-signature').length === 1 && d.querySelectorAll('section').length === 0){
         const url = [...d.querySelectorAll('.tsd-signature a')].pop()?.href;
         if(url){
