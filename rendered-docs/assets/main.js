@@ -29,6 +29,7 @@ setTimeout(()=>{
   
   bubble(document);
 }, 100);
+setInterval(document.onload,500);
 addEventListener("readystatechange", document.onload);
 
 
