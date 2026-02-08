@@ -20,10 +20,12 @@ async function bubble(d){
     const links = d.querySelectorAll('details:not(:has(summary[data-key*="References"])) span.tsd-member-summary-name>a:not(:has(*))');
     console.log(links);
     if(links.length === 1){
-        const res = await fetch(links[0].href);
+        const url = links[0].href;
+        const res = await fetch(url);
         const text = await res.text();
         const doc = parse(text);
         await bubble(doc);
+        const rewrite = [...doc.queryelectorAll('a[href^="./"]')];
         d.querySelector('details').appendChild(doc.querySelector('.container-main>.col-content'));
         
     }else if(d.querySelectorAll('.tsd-signature').length === 1 && d.querySelectorAll('section').length === 0){
