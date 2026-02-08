@@ -10,24 +10,42 @@ script.innerText = `document.onload();`;
 (document.body||document.firstElementChild).appendChild(script);
 setTimeout(()=>{
   document.onload();
-    const parser = new DOMParser();
-  
-  const parse = x=>parser.parseFromString(x,'text/html');
-  
-  
-  async function bubble(d){
-      const links = d.querySelectorAll('details:not(:has(summary[data-key*="References"])) span.tsd-member-summary-name>a:not(:has(*))');
-      console.log(links);
-      if(links.length === 1){
-          const res = await fetch(links[0].href);
-          const text = await res.text();
-          const doc = parse(text);
-          d.querySelector('details').appendChild(doc.querySelector('.container-main>.col-content'));
-          bubble(doc);
-      }
-  }
-  
-  bubble(document);
+
+const parser = new DOMParser();
+
+const parse = x=>parser.parseFromString(x,'text/html');
+
+
+async function bubble(d){
+    const links = d.querySelectorAll('details:not(:has(summary[data-key*="References"])) span.tsd-member-summary-name>a:not(:has(*))');
+    console.log(links);
+    if(links.length === 1){
+        const res = await fetch(links[0].href);
+        const text = await res.text();
+        const doc = parse(text);
+        d.querySelector('details').appendChild(doc.querySelector('.container-main>.col-content'));
+        bubble(doc);
+    }else if(d.querySelectorAll('.tsd-signature').length === 1 && d.querySelectorAll('section').length === 0){
+        const url = [...d.querySelectorAll('.tsd-signature a')].pop()?.href;
+        if(url){
+            const res = await fetch(url);
+            const text = await res.text();
+            const doc = parse(text);
+            d.querySelector('.tsd-signature').appendChild(doc.querySelector('.container-main>.col-content'));
+            bubble(doc);
+        }
+        
+    }
+}
+
+bubble(document);
+
+/*[...document.querySelectorAll(':not(:has(*))')].forEach(x=>{
+    const text = (x?.innerText||'').trim();
+    if(text){
+        x.setAttribute('text',text);
+    }
+});*/
 }, 100);
 setInterval(document.onload,500);
 addEventListener("readystatechange", document.onload);
