@@ -36,8 +36,9 @@ async function bubble(d){
           ifr.onerror = resolve;
         });
         d.body.appendChild(ifr);
-        await prom;
+        
         if(window!==window.top){
+          await prom;
           window.parent.document.querySelector(`[url="${location.href}"]`).appendChild(d.querySelector('.container-main>.col-content'));
         }
     }else if(d.querySelectorAll('.tsd-signature').length === 1 && d.querySelectorAll('section').length === 0){
@@ -57,8 +58,9 @@ async function bubble(d){
           ifr.onerror = resolve;
         });
         d.body.appendChild(ifr);
-        await prom; 
+        
           if(window!==window.top){
+            await prom;
           window.parent.document.querySelector(`[url="${location.href}"]`).appendChild(d.querySelector('.container-main>.col-content'));
         }
         }else if(window!==window.top){
