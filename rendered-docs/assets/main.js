@@ -31,8 +31,9 @@ async function bubble(d){
             const res = await fetch(url);
             const text = await res.text();
             const doc = parse(text);
+            await bubble(doc);
             d.querySelector('.tsd-signature').appendChild(doc.querySelector('.container-main>.col-content'));
-            bubble(doc);
+            
         }
         
     }
