@@ -358,7 +358,6 @@ function getValidNavigationURL(url) {
 }
 
 function installIntersectionPrevalidation(root = document, debounceMs = 50) {
-
   const pendingURLs = new Set();
   let debounceTimer = null;
 
@@ -367,7 +366,12 @@ function installIntersectionPrevalidation(root = document, debounceMs = 50) {
     debounceTimer = null;
 
     for (const url of pendingURLs) {
-      getValidNavigationURL(url);
+      //(async()=>{
+        [...document.querySelectorAll('a')]
+        .filter(x=>(x.href == url)).forEach(async(y)=>{
+          y.href = getValidNavigationURL(url);
+        }):
+      //})();
     }
 
     pendingURLs.clear();
