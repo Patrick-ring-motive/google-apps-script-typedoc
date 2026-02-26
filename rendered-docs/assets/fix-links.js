@@ -184,6 +184,46 @@ function attachClickListener(link) {
 
 }
 
+
+function installPerLinkClickHandling(root = document) {
+
+  function attachAll() {
+
+    for (const link of root.querySelectorAll('a[href]')) {
+      attachClickListener(link);
+    }
+
+  }
+
+  attachAll();
+
+  const observer = new MutationObserver(mutations => {
+
+    for (const mutation of mutations) {
+
+      for (const node of mutation.addedNodes) {
+
+        if (node.nodeType !== 1) continue;
+
+        if (node.matches?.('a[href]')) {
+          attachClickListener(node);
+        }
+
+        node.querySelectorAll?.('a[href]')
+          .forEach(attachClickListener);
+
+      }
+
+    }
+
+  });
+
+  observer.observe(root, {
+    childList: true,
+    subtree: true
+  });
+
+}
 const URL_CACHE_PREFIX = 'urlExists:';
 
 async function getCachedURLResult(url) {
@@ -342,7 +382,7 @@ function installIntersectionPrevalidation(root = document, debounceMs = 50) {
 }
 function installSmartNavigation(root = document) {
 
-  installClickInterceptor(root);
+  installPerLinkClickHandling(root);
 
   installHoverPrevalidation(root);
 
