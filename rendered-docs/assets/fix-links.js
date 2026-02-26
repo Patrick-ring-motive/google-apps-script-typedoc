@@ -145,6 +145,42 @@
   })();
 })();
 
+function installClickInterceptor(root = document) {
+
+  root.addEventListener('click', async function(event) {
+
+    const link = event.target.closest('a[href]');
+    if (!link) return;
+
+    if (
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      link.target === '_blank' ||
+      link.hasAttribute('download')
+    ) return;
+
+    const url = new URL(link.href, location.href);
+
+    if (
+      url.origin === location.origin &&
+      url.pathname === location.pathname &&
+      url.search === location.search
+    ) return;
+
+    event.preventDefault();
+
+    const valid = await getValidNavigationURL(url.href);
+
+    if (valid) {
+      window.top.location.href = valid;
+    }
+
+  });
+
+}
+
 const URL_CACHE_PREFIX = 'urlExists:';
 
 async function getCachedURLResult(url) {
@@ -237,7 +273,30 @@ function foundURL(url) {
   return promise;
 }
 
-function installIntersectionPrevalidation(root = document) {
+function installIntersectionPrevalidation(root = document, debounceMs = 50) {
+
+  const pendingURLs = new Set();
+  let debounceTimer = null;
+
+  function flush() {
+
+    debounceTimer = null;
+
+    for (const url of pendingURLs) {
+      getValidNavigationURL(url);
+    }
+
+    pendingURLs.clear();
+  }
+
+  function schedule(url) {
+
+    pendingURLs.add(url);
+
+    if (debounceTimer !== null) return;
+
+    debounceTimer = setTimeout(flush, debounceMs);
+  }
 
   const observer = new IntersectionObserver(entries => {
 
@@ -247,6 +306,8 @@ function installIntersectionPrevalidation(root = document) {
 
       const link = entry.target;
 
+      observer.unobserve(link);
+
       const url = new URL(link.href, location.href);
 
       if (
@@ -255,9 +316,7 @@ function installIntersectionPrevalidation(root = document) {
         url.search === location.search
       ) continue;
 
-      getValidNavigationURL(url.href);
-
-      observer.unobserve(link);
+      schedule(url.href);
     }
 
   }, {
@@ -265,15 +324,19 @@ function installIntersectionPrevalidation(root = document) {
   });
 
   function observeAll() {
-    root.querySelectorAll('a[href]').forEach(a => observer.observe(a));
+
+    for (const link of root.querySelectorAll('a[href]')) {
+      observer.observe(link);
+    }
+
   }
 
   observeAll();
 
   new MutationObserver(observeAll)
     .observe(root, { childList: true, subtree: true });
-}
 
+}
 function installSmartNavigation(root = document) {
 
   installClickInterceptor(root);
