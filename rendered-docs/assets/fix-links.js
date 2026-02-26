@@ -154,7 +154,7 @@ function attachClickListener(link) {
   clickListenerAttached.add(link);
 
   link.addEventListener('click', async function(event) {
-
+try{
     if (
       event.metaKey ||
       event.ctrlKey ||
@@ -179,7 +179,9 @@ function attachClickListener(link) {
     if (valid) {
       window.top.location.href = valid;
     }
-
+}catch(e){
+console.warn(e);
+}
   });
 
 }
