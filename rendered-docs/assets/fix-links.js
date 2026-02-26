@@ -372,7 +372,7 @@ function installIntersectionPrevalidation(root = document, debounceMs = 50) {
       //(async()=>{
         [...document.querySelectorAll('a')]
         .filter(x=>(x.href == url)).forEach(async(y)=>{
-          y.href = getValidNavigationURL(url);
+          y.href = await getValidNavigationURL(url);
         }):
       //})();
     }
