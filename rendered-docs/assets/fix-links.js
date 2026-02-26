@@ -332,7 +332,10 @@ function foundURL(url) {
 function makeAltURL(url) {
 
   if (!url.includes('/variables/')) {
-    return null;
+    if (!url.includes('/interfaces/')) {
+      return null;
+    }
+    return url.replace('/interfaces/', '/variables/');
   }
 
   return url.replace('/variables/', '/interfaces/');
