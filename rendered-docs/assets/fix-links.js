@@ -145,12 +145,15 @@
   })();
 })();
 
-function installClickInterceptor(root = document) {
+const clickListenerAttached = new WeakSet();
 
-  root.addEventListener('click', async function(event) {
+function attachClickListener(link) {
 
-    const link = event.target.closest('a[href]');
-    if (!link) return;
+  if (clickListenerAttached.has(link)) return;
+
+  clickListenerAttached.add(link);
+
+  link.addEventListener('click', async function(event) {
 
     if (
       event.metaKey ||
