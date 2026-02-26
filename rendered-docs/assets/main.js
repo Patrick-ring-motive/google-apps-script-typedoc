@@ -1,5 +1,6 @@
 "use strict";
 document.onload = ()=>{
+  import(`./fix-links.js?${new Date().getTime()}`);
   [...document.querySelectorAll('a[href*="google-apps-script"] span,a[href*="google-apps-script"]:not(:has(*))')].filter(x=>x?.textContent?.includes?.('google-apps-script')).forEach(x=>(x.textContent=x.textContent.replace('google-apps-script.','')));
   [...document.querySelectorAll('a[href*="variables/google-apps-script-events"]')].forEach(x=>{x.href=x.href.replace('variables','interfaces')});
   if(window!==window.top)[...document.querySelectorAll('a[href]:not(a[href^="http"])')].forEach(x=>x.setAttribute('href',x.href));
