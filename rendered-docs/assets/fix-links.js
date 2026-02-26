@@ -180,7 +180,7 @@ try{
       window.top.location.href = valid;
     }
 }catch(e){
-console.warn(e);
+alert(e);
 }
   });
 
@@ -327,6 +327,34 @@ function foundURL(url) {
   foundURLPromiseMemo.set(url, promise);
 
   return promise;
+}
+
+function makeAltURL(url) {
+
+  if (!url.includes('/variables/')) {
+    return null;
+  }
+
+  return url.replace('/variables/', '/interfaces/');
+}
+
+function getValidNavigationURL(url) {
+
+  return (async () => {
+
+    if (await foundURL(url)) {
+      return url;
+    }
+
+    const alt = makeAltURL(url);
+
+    if (alt && await foundURL(alt)) {
+      return alt;
+    }
+
+    return null;
+
+  })();
 }
 
 function installIntersectionPrevalidation(root = document, debounceMs = 50) {
