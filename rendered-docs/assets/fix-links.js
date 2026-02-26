@@ -190,7 +190,10 @@ function installPerLinkClickHandling(root = document) {
   function attachAll() {
 
     for (const link of root.querySelectorAll('a[href]')) {
-      attachClickListener(link);
+      if(!link.dataset.fixed){
+        link.dataset.fixed = true;
+        attachClickListener(link);
+      }
     }
 
   }
@@ -206,11 +209,19 @@ function installPerLinkClickHandling(root = document) {
         if (node.nodeType !== 1) continue;
 
         if (node.matches?.('a[href]')) {
-          attachClickListener(node);
+          if(!node.dataset.fixed){
+        node.dataset.fixed = true;
+        attachClickListener(node);
+      }
         }
 
         node.querySelectorAll?.('a[href]')
-          .forEach(attachClickListener);
+          .forEach(link=>{
+            if(!link.dataset.fixed){
+        link.dataset.fixed = true;
+        attachClickListener(link);
+      }
+          });
 
       }
 
