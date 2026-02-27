@@ -33,6 +33,23 @@ async function bubble(d){
         l = [...links].filter(x=>x.innerText.trim() == (`${ns}`));
         console.log(l);
       }
+      console.log(l);
+      if(!l.length){
+        l = [...links].filter(x=>x.innerText.trim() == (`${ns}Service`));
+        console.log(l);
+      }
+      if(!l.length){
+        l = [...links].filter(x=>x.innerText.trim().toLowerCase() == (`${ns}App`).toLowerCase());
+        console.log(l);
+      }
+      if(!l.length){
+        l = [...links].filter(x=>x.innerText.trim().toLowerCase() == (`${ns}`).toLowerCase());
+        console.log(l);
+      }
+      if(!l.length){
+        l = [...links].filter(x=>x.innerText.trim().toLowerCase() == (`${ns}Service`).toLowerCase());
+        console.log(l);
+      }
       links = l;
     }
     if(links.length === 1){
