@@ -337,7 +337,10 @@ function makeAltURL(url) {
 
   if (!url.includes('/variables/')) {
     if (!url.includes('/interfaces/')) {
-      return null;
+      if (!url.includes('/modules/')) {
+         return null
+      }
+      return return url.replace('/modules/', '/interfaces/');
     }
     return url.replace('/interfaces/', '/variables/');
   }
