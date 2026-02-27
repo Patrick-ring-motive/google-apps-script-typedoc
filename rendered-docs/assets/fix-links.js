@@ -432,7 +432,7 @@ function installSmartNavigation(root = document) {
 
   installPerLinkClickHandling(root);
 
-  installHoverPrevalidation(root);
+  //installHoverPrevalidation(root);
 
   installIntersectionPrevalidation(root);
 
