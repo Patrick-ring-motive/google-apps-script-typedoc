@@ -299,7 +299,7 @@ function foundURL(url) {
     try {
 
       const response = await fetch(url, {
-        method: 'HEAD',
+        method: 'get',
         signal: controller.signal,
         cache: 'force-cache',
         redirect: 'follow'
