@@ -28,6 +28,7 @@ async function bubble(d){
     const title = String(document.querySelector('.tsd-page-title')?.innerText).trim();
     if( /Namespace|Module/.test(title) && links.length > 1){
       const ns = title.split(/Namespace|Module/).pop().trim();
+      console.log({ns});
       let l = [...links].filter(x=>x.innerText.trim() == (`${ns}App`));
       console.log(l);
       if(!l.length){
