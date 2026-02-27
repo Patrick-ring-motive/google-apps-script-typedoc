@@ -50,6 +50,10 @@ async function bubble(d){
         l = [...links].filter(x=>x.innerText.trim().toLowerCase() == (`${ns}Service`).toLowerCase());
         console.log(l);
       }
+      if(!l.length){
+        l = [...links].filter(x=>x.innerText.trim().toLowerCase() == (`Schema`).toLowerCase());
+        console.log(l);
+      }
       links = l;
     }
     if(links.length === 1){
