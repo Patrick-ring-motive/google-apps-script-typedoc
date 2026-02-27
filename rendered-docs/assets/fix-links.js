@@ -180,6 +180,8 @@ try{
 
     if (valid) {
       window.top.location.href = valid;
+    }else{
+      window.top.location.href = link.href;
     }
 }catch(e){
 alert(e);
