@@ -27,9 +27,11 @@ async function bubble(d){
     //is namespace
     if(String(document.querySelector('.tsd-page-title')?.innerText).trim().includes('Namespace') && links.length > 1){
       const ns = String(document.querySelector('.tsd-page-title')?.innerText).trim().split('Namespace').pop().trim();
-      let l = [...links].filter(x=>x.innerText.includes(`${ns}App`));
+      let l = [...links].filter(x=>x.innerText.trim() == (`${ns}App`));
+      console.log(l);
       if(!l.length){
-        l = [...links].filter(x=>x.innerText.includes(`${ns}`));
+        l = [...links].filter(x=>x.innerText.trim() == (`${ns}`));
+        console.log(l);
       }
       links = l;
     }
