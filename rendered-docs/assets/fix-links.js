@@ -1,3 +1,5 @@
+
+(()=>{
 (() => {
   if (!self.sessionStorage) {
     const sessionStorageMap = new Map();
@@ -299,7 +301,7 @@ function foundURL(url) {
     try {
 
       const response = await fetch(url, {
-        method: 'get',
+        method: 'GET',
         signal: controller.signal,
         cache: 'force-cache',
         redirect: 'follow'
@@ -439,4 +441,7 @@ function installSmartNavigation(root = document) {
 }
 
 installSmartNavigation();
+
+
+})();
 
