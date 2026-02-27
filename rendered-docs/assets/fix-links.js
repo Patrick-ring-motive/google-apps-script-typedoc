@@ -178,7 +178,7 @@ try{
 
     const valid = await getValidNavigationURL(url.href);
 
-    if (valid) {
+    if (valid && !valid.endsWith('null')) {
       window.top.location.href = valid;
     }else{
       window.top.location.href = link.href;
@@ -376,7 +376,10 @@ function installIntersectionPrevalidation(root = document, debounceMs = 50) {
       //(async()=>{
         [...document.querySelectorAll('a')]
         .filter(x=>(x.href == url)).forEach(async(y)=>{
-          y.href = await getValidNavigationURL(url);
+          const valid = await getValidNavigationURL(url);
+          if(valid){
+            y.href = valid;
+          }
         });
       //})();
     }
