@@ -340,7 +340,7 @@ function makeAltURL(url) {
       if (!url.includes('/modules/')) {
          return null
       }
-      return return url.replace('/modules/', '/interfaces/');
+      return url.replace('/modules/', '/interfaces/');
     }
     return url.replace('/interfaces/', '/variables/');
   }
