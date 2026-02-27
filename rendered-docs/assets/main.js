@@ -1,3 +1,4 @@
+(()=>{
 "use strict";
 document.onload = ()=>{
   
@@ -21,8 +22,17 @@ const parse = x=>parser.parseFromString(x,'text/html');
 
 
 async function bubble(d){
-    const links = d.querySelectorAll('details:not(:has(summary[data-key*="References"])) span.tsd-member-summary-name>a:not(:has(*))');
+    let links = d.querySelectorAll('details:not(:has(summary[data-key*="References"])) span.tsd-member-summary-name>a:not(:has(*))');
     console.log(links);
+    //is namespace
+    if(String(document.querySelector('.tsd-page-title')?.innerText).trim().includes('Namespace') && links.length > 1){
+      const ns = String(document.querySelector('.tsd-page-title')?.innerText).trim().split('Namespace').pop().trim();
+      let l = [...links].filter(x=>x.innerText.includes(`${ns}App`));
+      if(!l.length){
+        l = [...links].filter(x=>x.innerText.includes(`${ns}`));
+      }
+      links = l;
+    }
     if(links.length === 1){
         const url = links[0].href;
         const res = await fetch(url);
@@ -157,3 +167,4 @@ lunr/lunr.js:
    * Copyright (C) 2020 Oliver Nightingale
    *)
 */
+                  })();
