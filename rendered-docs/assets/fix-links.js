@@ -167,7 +167,7 @@ try{
     ) return;
 
     const url = new URL(link.href, location.href);
-
+    if(url.origin !== location.origin)return;
     if (
       url.origin === location.origin &&
       url.pathname === location.pathname &&
@@ -404,7 +404,7 @@ function installIntersectionPrevalidation(root = document, debounceMs = 50) {
       observer.unobserve(link);
 
       const url = new URL(link.href, location.href);
-
+      if(url.origin !== location.origin)return;
       if (
         url.origin === location.origin &&
         url.pathname === location.pathname &&
