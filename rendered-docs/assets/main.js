@@ -25,8 +25,9 @@ async function bubble(d){
     let links = d.querySelectorAll('details:not(:has(summary[data-key*="References"])) span.tsd-member-summary-name>a:not(:has(*))');
     console.log(links);
     //is namespace
-    if(String(document.querySelector('.tsd-page-title')?.innerText).trim().includes('Namespace') && links.length > 1){
-      const ns = String(document.querySelector('.tsd-page-title')?.innerText).trim().split('Namespace').pop().trim();
+    const title = String(document.querySelector('.tsd-page-title')?.innerText).trim();
+    if( /Namespace|Module/.test(title) && links.length > 1){
+      const ns = title.split(/Namespace|Module/).pop().trim();
       let l = [...links].filter(x=>x.innerText.trim() == (`${ns}App`));
       console.log(l);
       if(!l.length){
