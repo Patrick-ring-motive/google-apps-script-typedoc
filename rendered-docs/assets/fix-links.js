@@ -457,7 +457,7 @@ x.className = 'language-js';
   
 (async () => {
     // Core (ES module build via esm.sh)
-    const Prism = (await import('https://esm.sh/prismjs@1.29.0')).default;
+    globalThis.Prism = (await import('https://esm.sh/prismjs@1.29.0')).default;
 
     // Optional: theme CSS
     const link = document.createElement('link');
@@ -476,17 +476,13 @@ if(globalThis.hhh)return;
     // Highlight once DOM is ready
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
-        Prism.highlightAll()
-        with(window.top){
-          Prism.highlightAll();
-        }
+        Prism.highlightAll();
+        window.top.Prism.highlightAll();
       });
       
     } else {
       Prism.highlightAll();
-        with(window.top){
-          Prism.highlightAll();
-        }
+      window.top.Prism.highlightAll();
     }
   globalThis.hhh ??= true;
   })();
