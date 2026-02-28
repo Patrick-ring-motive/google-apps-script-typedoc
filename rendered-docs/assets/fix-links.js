@@ -444,7 +444,7 @@ function installSmartNavigation(root = document) {
 
   //installHoverPrevalidation(root);
 
-  installIntersectionPrevalidation(root);
+  //installIntersectionPrevalidation(root);
 
 }
 
