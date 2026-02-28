@@ -475,9 +475,18 @@ x.className = 'language-js';
 if(globalThis.hhh)return;
     // Highlight once DOM is ready
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => Prism.highlightAll());
+      document.addEventListener('DOMContentLoaded', () => {
+        Prism.highlightAll()
+        with(window.top){
+          Prism.highlightAll();
+        }
+      });
+      
     } else {
       Prism.highlightAll();
+        with(window.top){
+          Prism.highlightAll();
+        }
     }
   globalThis.hhh ??= true;
   })();
