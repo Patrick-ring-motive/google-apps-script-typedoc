@@ -472,13 +472,14 @@ x.className = 'language-js';
       import('https://esm.sh/prismjs@1.29.0/components/prism-javascript'),
       // e.g. Python: import('https://esm.sh/prismjs@1.29.0/components/prism-python'),
     ]);
-
+if(globalThis.hhh)return;
     // Highlight once DOM is ready
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => Prism.highlightAll());
     } else {
       Prism.highlightAll();
     }
+  globalThis.hhh ??= true;
   })();
 
 
