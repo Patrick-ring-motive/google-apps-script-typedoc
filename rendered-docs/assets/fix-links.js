@@ -450,6 +450,37 @@ function installSmartNavigation(root = document) {
 
 installSmartNavigation();
 
+[...document.querySelectorAll('code')].forEach(x=>{
+x.className = 'language-js';
+});
+
+  
+(async () => {
+    // Core (ES module build via esm.sh)
+    const Prism = (await import('https://esm.sh/prismjs@1.29.0')).default;
+
+    // Optional: theme CSS
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css';
+    document.head.appendChild(link);
+
+    // Load languages you need (add more as needed)
+    await Promise.all([
+      import('https://esm.sh/prismjs@1.29.0/components/prism-markup'),
+      import('https://esm.sh/prismjs@1.29.0/components/prism-css'),
+      import('https://esm.sh/prismjs@1.29.0/components/prism-javascript'),
+      // e.g. Python: import('https://esm.sh/prismjs@1.29.0/components/prism-python'),
+    ]);
+
+    // Highlight once DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => Prism.highlightAll());
+    } else {
+      Prism.highlightAll();
+    }
+  })();
+
 
 })();
 
