@@ -175,9 +175,32 @@
     });
   })();
   (()=>{
+    const isArray = x => Array.isArray(x) || x instanceof Array;
+    const isString = x => typeof x === 'string' || x instanceof String;
     Object.defineProperty(SpreadsheetApp,'selection',{
       get:SpreadsheetApp.getSelection,
-      set:SpreadsheetApp.setCurrentCell,
+      set:function setSelection(input){
+        if(input.activate){
+          input.activate();
+        }else if(input.getRangeList){
+          input.getRangeList().activate();
+        }else if(input.getRange){
+          input.getRange().activate();
+        }else if(input.getActiveRangeList){
+          input.getActiveRangeList().activate();
+        }else if(input.getActiveRange){
+          input.getActiveRange().activate();
+        }else if(isArray(input)){
+          const sheet = SpreadsheetApp.getActiveSheet() ?? SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+          const range = sheet.getRangeList(input);
+          range.activate();
+        }else if(isString(input)){
+          const sheet = SpreadsheetApp.getActiveSheet() ?? SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+          const range = sheet.getRange(input);
+          range.activate();
+        }
+        return SpreadsheetApp.getSelection();
+      },
       configurable:true
     });
   })();
