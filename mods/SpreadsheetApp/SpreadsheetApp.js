@@ -122,4 +122,14 @@
       }
     },_create);
   })();
+  (()=>{
+    let $ui;
+    Object.defineProperty(SpreadsheetApp,'ui',{
+      get:extend(function ui(){
+        $ui = $ui ?? SpreadsheetApp.getUi();
+        return $ui;
+      },SpreadsheetApp.getUi),
+      configurable:true
+    });
+  })();
 })();
