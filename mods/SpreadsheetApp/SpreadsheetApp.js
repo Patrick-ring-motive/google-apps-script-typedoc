@@ -116,7 +116,7 @@
         }
         rows = rows ?? 100;
         columns = columns ?? 26;
-        return _create(names,rows,columns);
+        return _create(name,rows,columns);
       } catch(e) {
         return null;
       }
