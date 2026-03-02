@@ -132,4 +132,53 @@
       configurable:true
     });
   })();
+  (()=>{
+    Object.defineProperty(SpreadsheetApp,'active',{
+      get:SpreadsheetApp.getActive,
+      set:SpreadsheetApp.setActiveSpreadsheet,
+      configurable:true
+    });
+  })();
+  (()=>{
+    Object.defineProperty(SpreadsheetApp,'activeSpreadsheet',{
+      get:SpreadsheetApp.getActiveSpreadsheet,
+      set:SpreadsheetApp.setActiveSpreadsheet,
+      configurable:true
+    });
+  })();
+  (()=>{
+    Object.defineProperty(SpreadsheetApp,'activeSheet',{
+      get:SpreadsheetApp.getActiveSheet,
+      set:SpreadsheetApp.setActiveSheet,
+      configurable:true
+    });
+  })();
+  (()=>{
+    Object.defineProperty(SpreadsheetApp,'activeRange',{
+      get:SpreadsheetApp.getActiveRange,
+      set:SpreadsheetApp.setActiveRange,
+      configurable:true
+    });
+  })();
+  (()=>{
+    Object.defineProperty(SpreadsheetApp,'activeRangeList',{
+      get:SpreadsheetApp.getActiveRangeList,
+      set:SpreadsheetApp.setActiveRangeList,
+      configurable:true
+    });
+  })();
+  (()=>{
+    Object.defineProperty(SpreadsheetApp,'currentCell',{
+      get:SpreadsheetApp.getCurrentCell,
+      set:SpreadsheetApp.setCurrentCell,
+      configurable:true
+    });
+  })();
+  (()=>{
+    Object.defineProperty(SpreadsheetApp,'selection',{
+      get:SpreadsheetApp.getSelection,
+      set:SpreadsheetApp.setCurrentCell,
+      configurable:true
+    });
+  })();
 })();
