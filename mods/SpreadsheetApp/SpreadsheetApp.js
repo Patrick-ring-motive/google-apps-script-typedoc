@@ -38,21 +38,7 @@
         return thisClass;
     };
   const SpreadSheetHandles = new Map();
-  const Spreadsheet = class Spreadsheet extends SpreadsheetApp.create {
-
-  constructor(input, rows, cols) {
-    let $this;
-    try {
-      $this = Spreadsheet.open(input) 
-        ?? (rows !== undefined 
-          ? super(input, rows, cols) 
-          : super(input));
-    } catch(e) {
-      throw e;
-    }
-    return Object.setPrototypeOf($this, Spreadsheet.prototype);
-  }
-};
+  
   SpreadsheetApp.openByName = function openByName(name) {
     try{
       let sheet = SpreadSheetHandles.get(name);
