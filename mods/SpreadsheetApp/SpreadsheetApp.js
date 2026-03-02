@@ -88,7 +88,7 @@
     },_open);
   })();
   (()=>{
-    const _openById = SpreadsheetApp.openById
+    const _openById = SpreadsheetApp.openById;
     SpreadsheetApp.openById = extend(function openById(input) {
       try {
         if(SpreadSheetHandles.has(input))return SpreadSheetHandles.get(input);
@@ -105,7 +105,7 @@
     },_openById);
   })();
   (()=>{
-    const _openByUrl = SpreadsheetApp.openByUrl
+    const _openByUrl = SpreadsheetApp.openByUrl;
     SpreadsheetApp.openByUrl = extend(function openByUrl(input) {
       try {
         if(SpreadSheetHandles.has(input))return SpreadSheetHandles.get(input);
@@ -120,5 +120,20 @@
         return null;
       }
     },_openByUrl);
+  })();
+  (()=>{
+    const _create = SpreadsheetApp.create
+    SpreadsheetApp.create = extend(function create(name,rows,columns) {
+      try {
+        if(rows == undefined && columns == undefined){
+          return _create(name);
+        }
+        rows = rows ?? 100;
+        columns = columns ?? 26;
+        return _create(names,rows,columns);
+      } catch(e) {
+        return null;
+      }
+    },_create);
   })();
 })();
