@@ -191,8 +191,9 @@
         }else if(input.getActiveRange){
           input.getActiveRange().activate();
         }else if(isArray(input)){
+          const notations = input.map(r => r?.getA1Notation?.() ?? r);
           const sheet = SpreadsheetApp.getActiveSheet() ?? SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
-          const range = sheet.getRangeList(input);
+          const range = sheet.getRangeList(notations);
           range.activate();
         }else if(isString(input)){
           const sheet = SpreadsheetApp.getActiveSheet() ?? SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
